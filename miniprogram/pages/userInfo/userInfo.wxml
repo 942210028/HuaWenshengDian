@@ -1,0 +1,71 @@
+<tabbar activeIdx="1"></tabbar>
+<custom navbar-data='{{navbarData}}'></custom>
+<view class="seachbox" style="top: {{height}}px;background-position: 0 -{{height}}px;">
+	<view class="input">
+		<input placeholder="输入姓名/学校/专业查询用户" type="text" value="{{searchValue}}" bindinput="inputValue" bindconfirm="search" />
+		<van-icon name="search" />
+	</view>
+	<view class="seachConfirm" bindtap="search">确定</view>
+</view>
+<!-- 用户列表 -->
+<view class="userList_box" style="margin-top: calc({{height}}px + 118rpx);">
+	<view style="margin-bottom: 60rpx;" wx:if="{{specialityListShow}}">
+		<view wx:for="{{userListSort}}">
+			<view style="display: flex;align-items: center;justify-content: space-between;font-size: 32rpx;" bindtap="specialityListShow" data-index="{{index}}">
+				<view>{{item.schoolName}}</view>
+				<view>{{item.total}}</view>
+			</view>
+			<view wx:if="{{item.showMore}}">
+				<view wx:for="{{item.speciality}}" wx:for-item="items">
+					<view style="display: flex;align-items: center;justify-content: space-between;font-size: 26rpx;color: gray;">
+						<view style="font-weight: bold;">{{items.speciality}}</view>
+						<view>{{items.specialityList.length}}</view>
+					</view>
+					<view style="display: flex;align-items: center;justify-content: start;font-size: 26rpx;color: #949494;flex-wrap: wrap;">
+						<view wx:for="{{items.specialityList}}" wx:for-item="itemss" style="width: 136rpx;text-align: center;white-space: nowrap;">
+							{{itemss.name}}
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<view style="display: flex;align-items: center;justify-content: space-between;">
+			<view>总人数</view>
+			<view>{{userList.length}}</view>
+		</view>
+	</view>
+	<view wx:if="{{!specialityListShow}}">
+		<view class="userTitle">用户列表</view>
+		<view class="userList">
+			<view wx:for="{{searchList.length>0?searchList:userList}}" wx:key="index" wx:for-index="index" data-detail="{{item}}" bindtap="toEditUserInfo">
+				<view wx:if="{{item.type>1}}" class="userType">
+					<image mode="heightFix" src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/{{item.type==2||item.type==3?'teacherIcon':'adminIcon'}}.png" />{{item.type==2?'老师':(item.type==3?item.schoolName:(item.type==4?'评委':'管理员'))}}
+				</view>
+				<view class="userListItem">
+					<view class="userAvatar">
+						<image src="{{item.avatar_url}}" />
+					</view>
+					<view class="userInfo">
+						<view>{{item.name}}</view>
+						<view>{{item.speciality}}</view>
+					</view>
+				</view>
+				<view>查看详情
+					<van-icon name="arrow" />
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+<view class="weui-loadmore" wx:if="{{searchList.length<1 && !specialityListShow}}">
+	<view wx:if='{{isLoadingMoreData}}'>
+		<view class="weui-loading"></view>
+		<view class="weui-loadmore-tips">正在加载更多...</view>
+	</view>
+	<view wx:elif='{{hasMoreData}}'>
+		<view class="weui-loadmore-tips" bindtap='onReachBottom'>点击加载更多</view>
+	</view>
+	<view wx:else>
+		<view class="weui-loadmore-tips">没有更多用户啦~</view>
+	</view>
+</view>

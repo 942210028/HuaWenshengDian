@@ -1,0 +1,8 @@
+{
+	"usingComponents": {
+		"custom": "/components/custom/custom",
+    "tabbar": "/components/bottomNavBar/bottomNavBar",
+		"van-icon": "@vant/weapp/icon/index",
+		"van-loading": "@vant/weapp/loading/index"
+	}
+}

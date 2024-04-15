@@ -1,0 +1,104 @@
+page {
+	padding-bottom: 116rpx;
+}
+
+.pageBg {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	background: url(https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/pageBg.png) no-repeat, linear-gradient(180deg, #F5EFFF 0%, #FFFFFF 100%);
+	background-size: 100%;
+	z-index: -1;
+}
+
+.bottomBtn {
+	width: 574rpx;
+	height: 106rpx;
+	box-shadow: 0px 3px 6px 1px rgba(0, 47, 118, 0.08);
+	line-height: 106rpx;
+	text-align: center;
+	color: white;
+	font-size: 36rpx;
+	border-radius: 54rpx;
+	position: fixed;
+	left: 50%;
+	bottom: 60rpx;
+	transform: translateX(-50%);
+	background: #370092;
+}
+
+.sendPrizeBtn {
+	width: 574rpx;
+	height: 106rpx;
+	box-shadow: 0px 3px 6px 1px rgba(0, 47, 118, 0.08);
+	line-height: 106rpx;
+	text-align: center;
+	color: white;
+	font-size: 36rpx;
+	border-radius: 54rpx;
+	position: fixed;
+	left: 50%;
+	bottom: 200rpx;
+	transform: translateX(-50%);
+	background: #9d42e7;
+}
+
+.avatar_url,
+.name,
+.phone_number,
+.type,
+.group {
+	width: 686rpx;
+	margin: 0 auto;
+	border-bottom: 1px solid #E2EDFC;
+	padding: 30rpx 0;
+	font-size: 30rpx;
+	color: #000000;
+}
+
+.title {
+	font-size: 24rpx;
+	line-height: 24rpx;
+	margin-bottom: 40rpx;
+	color: #8E8E8E;
+}
+
+.avatar_url {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.userAvatarBtn::after {
+	border: none;
+}
+
+.userAvatarBtn {
+	width: 110rpx;
+	height: 110rpx;
+	border-radius: 24rpx;
+	background: #FFFFFF;
+	display: flex;
+	margin-right: 50rpx;
+	padding: 0;
+	border: none;
+	box-shadow: 0px 3px 6px 1px rgba(0, 0, 0, 0.16);
+}
+
+.userAvatarBtn>image {
+	width: 110rpx;
+	height: 110rpx;
+	border-radius: 24rpx;
+}
+
+.deleteUser {
+	text-align: center;
+	font-size: 28rpx;
+	color: #666666;
+	text-decoration: underline;
+	position: fixed;
+	bottom: 10rpx;
+	left: 50%;
+	transform: translateX(-50%);
+}

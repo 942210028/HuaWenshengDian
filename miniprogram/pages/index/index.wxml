@@ -1,0 +1,170 @@
+<tabbar activeIdx="0"></tabbar>
+<!-- ——————————————————————————    管理端    —————————————————————————— -->
+<view class="adminPage" wx:if="{{userType==4||userType==5}}">
+  <custom navbar-data='{{navbarData}}'></custom>
+  <view class="pageTop" style="margin-top: {{height}}px;">
+    <!-- 用户信息 -->
+    <view>
+      <view>
+        <view class="userAvatar">
+          <image src="{{userInfo.avatar_url}}" />
+        </view>
+        <view class="userName">
+          <view>{{userInfo.name}}<text>{{userInfo.type==4?"评委":"管理员"}}</text></view>
+          <view>{{userInfo.phone_number}}</view>
+        </view>
+      </view>
+      <view wx:if="{{userType==5}}" bindtap="toEditUserInfo">
+        <van-icon name="records" />修改资料
+      </view>
+    </view>
+  </view>
+  <!-- 轮播图 -->
+  <view>
+    <swiper class="swiper-box" indicator-dots circular autoplay indicator-active-color="#b81d1d">
+      <swiper-item wx:for="{{bannerImgList}}" wx:key="route" bindtap="toBannerDetail" data-route="{{item.route}}">
+        <view class="bannerImg">
+          <image src="{{item.bannerImg}}" />
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 审阅任务栏 -->
+  <view class="examine">
+    <view class="examineTitle">审阅任务栏</view>
+    <view class="joinUser">
+      <view>
+        <image wx:for="{{totalUserList}}" src="{{item.avatar_url}}" />
+        <view wx:if="{{totalUserList[0].totalCount>4}}">···</view>
+      </view>
+      <view>
+        {{totalUserList[0].totalCount}}人报名
+      </view>
+    </view>
+    <view class="examineSubTitle">“用英语讲中国故事”-视频创作</view>
+    <view class="examineDetail">
+      <view>2023/05/22-2023/08/31</view>
+      <view bindtap="toExamine">查看详情</view>
+    </view>
+  </view>
+  <!-- 参赛人信息 -->
+  <view class="joinList_box">
+    <view class="joinUserTitle">
+      <view>参赛人信息</view>
+      <view bindtap="toJoinRaceUserList">更多
+        <van-icon name="arrow" />
+      </view>
+    </view>
+    <view class="joinList">
+      <view wx:for="{{joinRaceUserList}}" data-id="{{item._openid}}" bindtap="toJoinRaceUserDetail">
+        <view>
+          <view class="joinUserAvatar">
+            <image src="{{item.avatar_url}}" />
+          </view>
+          <view class="joinUserInfo">
+            <view>{{item.name}}</view>
+            <view>{{item.schoolName}}</view>
+          </view>
+        </view>
+        <view>查看详情
+          <van-icon name="arrow" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-loadmore">
+    <view wx:if='{{isLoadingMoreData}}'>
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore-tips">正在加载更多...</view>
+    </view>
+    <view wx:elif='{{hasMoreData}}'>
+      <view class="weui-loadmore-tips" bindtap='onReachBottom'>点击加载更多</view>
+    </view>
+    <view wx:else>
+      <view class="weui-loadmore-tips">没有更多参赛者啦~</view>
+    </view>
+  </view>
+</view>
+<!-- ——————————————————————————    用户端    —————————————————————————— -->
+<view class="userPage" wx:else>
+  <view class="pageTop_user" style="top: calc(-1200rpx + {{height}}px);">
+    <view style="height: calc({{height}}px + 100rpx);"></view>
+  </view>
+  <view class="relative">
+    <view style="margin-top: calc({{height}}px + 20rpx);">
+      <swiper class="user_swiper-box">
+        <swiper-item wx:for="{{bannerImgList}}" wx:key="route" bindtap="toBannerDetail" data-route="{{item.route}}">
+          <view class="user_bannerImg">
+            <image src="{{item.bannerImg}}"  />
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+    <!-- 菜单栏 -->
+    <view class="user_menu">
+      <view bindtap="toEntrance">
+        <view>
+          <image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/indexMenu1.png" />
+        </view>
+        <view>我要报名</view>
+      </view>
+      <view bindtap="toGetPrize">
+        <view>
+          <image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/indexMenu2.png" />
+        </view>
+        <view>排名查询</view>
+      </view>
+      <view bindtap="toRaceDetail">
+        <view>
+          <image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/indexMenu3.png" />
+        </view>
+        <view>活动介绍</view>
+      </view>
+      <view bindtap="toUploadWorks">
+        <view>
+          <image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/indexMenu4.png" />
+        </view>
+        <view>上传作品</view>
+      </view>
+    </view>
+    <!-- 赛事专区 -->
+    <view class="user_raceArea">
+      <view class="user_raceArea-title">
+        <view>活动专区</view>
+        <!-- <view bindtap="toRacePage">查看全部<van-icon name="arrow" /></view> -->
+      </view>
+      <view class="indexMenu" data-index="0" bindtap="indexMenu">
+        <view>
+          <image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/indexRaceImg1-1.png" />
+        </view>
+        <view>
+          <text>第二届“中高杯”英语演讲暨“用英语讲中国故事-视频创作”\n </text><text style="display: inline-block;width: 100%;">活动规则</text>
+        </view>
+      </view>
+      <view class="indexMenu" data-index="1" bindtap="indexMenu">
+        <view>
+          <image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/indexRaceImg2-1.png" />
+        </view>
+        <view>
+          <text>"用英语讲中国故事"\n英文朗诵文本</text>
+        </view>
+      </view>
+      <view wx:if="{{indexVIdeoShow}}" class="indexMenu" data-index="2" bindtap="indexMenu">
+        <view>
+          <image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/indexRaceImg3.png" />
+        </view>
+        <view>
+          《EC英语角》杂志简介
+        </view>
+      </view>
+      <view class="indexMenu" data-index="3" bindtap="indexMenu">
+        <view>
+          <image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/indexRaceImg4.png" />
+        </view>
+        <view>
+          “用英语讲中国故事” 优秀作品参考
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

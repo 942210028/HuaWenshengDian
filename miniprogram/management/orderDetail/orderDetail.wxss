@@ -1,0 +1,133 @@
+page {
+  padding-bottom: 116rpx;
+}
+
+.pageBg {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background: url(https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/pageBg.png) no-repeat, linear-gradient(180deg, #F5EFFF 0%, #FFFFFF 100%);
+  background-size: 100%;
+  z-index: -1;
+}
+
+.orderBox {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 2rpx solid #EFF4FF;
+  padding: 30rpx;
+  width: 686rpx;
+  margin: 30rpx auto;
+  background: #FFFFFF;
+  box-shadow: 0px 3px 6px 1px rgba(0, 47, 118, 0.08);
+  border-radius: 30rpx;
+}
+
+.orderCover {
+  display: flex;
+  align-items: center;
+  font-size: 22rpx;
+  line-height: 22rpx;
+  color: #999999;
+}
+
+.orderCover image {
+  width: 156rpx;
+  height: 160rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 3px 6px 1px rgba(0, 47, 118, 0.08);
+  border-radius: 30rpx;
+  margin-right: 20rpx;
+}
+
+.orderTime {
+  font-size: 22rpx;
+  line-height: 22rpx;
+  color: #999999;
+  margin: 16rpx 0;
+  max-width: 300rpx;
+}
+
+.orderName {
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #3A454B;
+  font-weight: bold;
+  margin-top: 10rpx;
+}
+
+.orderStatus {
+  font-size: 28rpx;
+  line-height: 28rpx;
+}
+
+.orderPrice {
+  margin-right: 0;
+  margin-left: auto;
+  text-align: right;
+}
+
+.orderPrice>view:last-child {
+  font-size: 28rpx;
+  margin-top: 76rpx;
+}
+
+.orderPrice>view:last-child text {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.userInfo {
+  padding: 30rpx;
+  width: 686rpx;
+  margin: 30rpx auto;
+  background: #FFFFFF;
+  box-shadow: 0px 3px 6px 1px rgba(0, 47, 118, 0.08);
+  border-radius: 30rpx;
+}
+
+.userInfo>view:nth-child(1) {
+  color: #3A454B;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.userInfo>view:nth-child(2) {
+  color: #3A454B;
+  font-size: 30rpx;
+  line-height: 60rpx;
+}
+
+.userInfo>view:nth-child(3) {
+  font-size: 26rpx;
+  color: #666666;
+  margin-bottom: 86rpx;
+}
+
+.userInfo>view:nth-child(3) text {
+  display: inline-block;
+  margin-right: 16rpx;
+}
+
+.userInfo>view:nth-child(4),
+.userInfo>view:nth-child(5) {
+  font-size: 22rpx;
+  color: #999999;
+  margin-top: 32rpx;
+}
+
+.bottomBtn {
+  width: 574rpx;
+  height: 106rpx;
+  box-shadow: 0px 3px 6px 1px rgba(0, 47, 118, 0.08);
+  line-height: 106rpx;
+  text-align: center;
+  color: white;
+  font-size: 36rpx;
+  border-radius: 54rpx;
+  position: fixed;
+  left: 50%;
+  bottom: 60rpx;
+  transform: translateX(-50%);
+}

@@ -1,0 +1,26 @@
+<view class="pageBg"></view>
+<custom navbar-data='{{navbarData}}'></custom>
+<view style="margin-top: calc({{height}}px + 30rpx);">
+    <view class="orderBox">
+      <view class="orderCover">
+        <image src="https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/magazine/magazine_{{item.group=='初中'?'blue':(orderDetail.group=='小高'?'green':'red')}}.png" />
+      </view>
+      <view>
+        <view class="orderName">《英语角》杂志level {{orderDetail.group=='初中'?'3':(orderDetail.group=='小高'?'2':'1')}}</view>
+        <view class="orderTime">下单时间：{{orderDetail.creatTime}}</view>
+      </view>
+      <view class="orderPrice">
+        <view class="orderStatus" style="color: {{orderDetail.shipped?'#758E9D':'#FF7600'}};">{{orderDetail.shipped?"已发货":"未发货"}}</view>
+        <view>实付 ¥<text>{{orderDetail.totalFee/100}}</text></view>
+      </view>
+    </view>
+</view>
+<view class="userInfo">
+  <view>收获地址</view>
+  <view><text user-select>{{orderDetail.address}}</text></view>
+  <view><text user-select>{{orderDetail.name}}</text><text user-select>{{orderDetail.phone_number}}</text></view>
+  <view>订单号: <text user-select>{{orderDetail.outTradeNo}}</text></view>
+  <view>下单时间：{{orderDetail.creatTimeDetail}}</view>
+</view>
+
+<view class="bottomBtn" style="background: {{orderDetail.shipped?'#9880C2':'#370092'}};" bindtap="upDateShipped">{{orderDetail.shipped?"已发货":"确认发货"}}</view>

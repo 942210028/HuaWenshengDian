@@ -1,0 +1,30 @@
+page{
+  background: linear-gradient(180deg, #E2EEFA 0%, #FAFAFA 80%, #FFFFFF 100%) no-repeat;
+	padding-bottom: 116rpx;
+}
+.award{
+	width: 686rpx;
+	margin: 0 auto;
+	padding-top: 32rpx;
+}
+.award image{
+	width: 675rpx;
+}
+.canvasPage{
+	width: 686rpx;
+	margin: 0 auto;
+	padding-top: 32rpx;
+}
+
+.save{
+	width: 686rpx;
+	height: 120rpx;
+	text-align: center;
+	line-height: 120rpx;
+	color: white;
+	font-size: 32rpx;
+	background: linear-gradient(180deg, rgba(54,154,255,0.29) 0%, rgba(54,154,255,0.99) 100%);
+	position: fixed;
+	bottom: 100rpx;
+	left: 32rpx;
+}

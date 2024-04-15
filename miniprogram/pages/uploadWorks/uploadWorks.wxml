@@ -1,0 +1,71 @@
+<custom navbar-data='{{navbarData}}'></custom>
+<view style="margin-top: {{height}}px;">
+	<video custom-cache="{{false}}" src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/zhonggaobei.mp4"></video>
+</view>
+<view class="page">
+	<view class="userInfo">
+		<view>学校：<input placeholder="请填写学校名称" value="{{userInfo.schoolName}}" disabled />
+			<view>专业：<input placeholder="请填写在读专业" value="{{userInfo.speciality}}" disabled /></view>
+		</view>
+		<view>姓名：<input placeholder="请填写参赛人姓名" value="{{userInfo.name}}" disabled bindinput="joinRaceUserNameInput" type="text" />
+			<view>年级：<input placeholder="请选择年级" value="{{userInfo.grade}}" disabled /></view>
+		</view>
+		<view>手机号码：<input placeholder="请填写手机号" value="{{userInfo.phone_number}}" disabled bindinput="phoneInput" type="text" /></view>
+		<view>邮箱：<input placeholder="请填写邮箱" value="{{userInfo.email}}" disabled bindinput="emailInput" type="text" /></view>
+		<view>创作人员：<input placeholder="最多填写三人，以“，”隔开" value="{{userInfo.author}}" bindinput="authorInput" type="text" /></view>
+		<view>指导老师：<input placeholder="请填写指导老师姓名,没有请填无" value="{{userInfo.instructor}}" bindinput="instructorInput" type="text" /></view>
+		<view>英文朗诵选题名称：<input placeholder="请填写朗诵选题名称" disabled value="{{recitationTitle}}" bindtap="modifylangsongShow" type="text" /></view>
+		<view></view>
+	</view>
+
+	
+	<view class="title">
+		作品选题要求
+	</view>
+	<view class="content"><text user-select decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;各位选手须采用“英文朗诵”“英文自我介绍”2种形式来准备作品，两个环节作品需分开上传至对应位置，分别要求如下：</text></view>
+	<!-- 上传作品2 -->
+	<view class="title" style="margin-top: -12rpx;font-size: 26rpx;">作品1：英文朗诵视频</view>
+	<view class="content"><text user-select decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选手从推荐文章中选 1篇，用英文朗诵故事段落。具体形式为选手面对镜头进行朗诵，模拟舞台现场拍摄不超过1.5分钟的视频，在线提交视频作品。</text></view>
+	<van-uploader file-list="{{ fileList2 }}" multiple capture="{{['album']}}" media-type="{{['video']}}" max-count="1" accept="media" use-before-read max-size="314572800" bind:before-read="beforeRead2" bind:after-read="afterRead2" bind:delete="deteleFile2">
+		<view class="upload">
+			<view>
+				<view>
+					<view></view>
+					<view></view>
+				</view>
+				<view>文件大小限制200M内</view>
+			</view>
+		</view>
+	</van-uploader>
+	<view class="uploadTips" wx:if="{{fileList2.length==0}}">上传预计耗时1-3分钟，请保证网络环境良好，耐心等待。</view>
+	<!-- 上传作品1 -->
+	<view>
+		<view class="title" style="margin-top: 40rpx;font-size: 26rpx;">作品2：英文自我介绍视频</view>
+	<view class="content"><text user-select decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;选手用英文从自身出发进行介绍。自我介绍内容须含有中国元素，包含且不限于中国风物、习俗、人物、成就、艺术或精神；不含选手中文姓名或学校名称。具体形式为选手面对镜头自我介绍，模拟舞台现场拍摄不超1.5分钟的视频，在线提交视频作品。</text></view>
+		<van-uploader file-list="{{ fileList }}" multiple capture="{{['album']}}" media-type="{{['video']}}" max-count="1" accept="media" use-before-read bind:before-read="beforeRead" max-size="314572800" bind:after-read="afterRead" bind:delete="deteleFile">
+			<view class="upload">
+				<view>
+					<view>
+						<view></view>
+						<view></view>
+					</view>
+					<view>文件大小限制200M内（可分次上传）</view>
+				</view>
+			</view>
+		</van-uploader>
+		<view class="uploadTips" wx:if="{{fileList.length==0}}">上传预计耗时1-3分钟，请保证网络环境良好，耐心等待。</view>
+	</view>
+	<view class="commit" bindtap="commit">上传</view>
+</view>
+
+<!-- 选择组别组件 -->
+<van-action-sheet show="{{ chooseGradeShow }}" actions="{{ chooseGradeActions }}" bind:close="chooseGradeShow" bind:select="chooseGradeOnSelect" />
+
+<view class="mask" wx:if="{{modifylangsongShow || modifyschoolShow || modifyspecialityShow}}" bindtap="maskTap"></view>
+<!-- 朗诵选择列表 -->
+<van-picker item-height="58" class="picker" show-toolbar columns="{{ langsongColumns }}" wx:if="{{modifylangsongShow}}" bind:confirm="modifylangsong" bind:cancel="modifylangsongShow" />
+
+
+
+<!-- 学校选择列表 -->
+<van-picker class="picker" show-toolbar columns="{{ schoolColumns }}" wx:if="{{modifyschoolShow}}" bind:confirm="modifyschool" bind:change="modifyschoolOnChange" bind:cancel="modifyschoolShow" />

@@ -1,0 +1,131 @@
+<!--  ——————————————————————————————————  管理端  ——————————————————————————————————  -->
+<view class="adminPage" wx:if="{{userType==4||userType==5}}">
+  <tabbar activeIdx="3"></tabbar>
+  <custom navbar-data='{{navbarData}}'></custom>
+  <view class="pageTop" style="margin-top: {{height}}px;" bindtap="toEditUserInfo">
+    <view>
+      <view class="userAvatar">
+        <image src="{{userInfo.avatar_url}}" />
+      </view>
+      <view class="userName">
+        <view>{{userInfo.name}}<text>{{userInfo.type==4?"评委":"管理员"}}</text></view>
+        <view>{{userInfo.phone_number}}</view>
+      </view>
+    </view>
+    <view>
+      <van-icon name="arrow" />
+    </view>
+  </view>
+
+  <view class="user_menu">
+    <view bindtap="createInfo">
+      <view><image mode="widthFix" src="https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/mineMenuIcon_record.png" />导出记录</view>
+      <view><van-icon name="arrow" color="#BFBFBF" size="42rpx" /></view>
+    </view>
+    <view bindtap="tofirstwork">
+      <view><image mode="widthFix" src="https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/mineMenuIcon_record.png" />查看作品1</view>
+      <view><van-icon name="arrow" color="#BFBFBF" size="42rpx" /></view>
+    </view>
+    <view bindtap="downLoadWork1">
+      <view><image mode="widthFix" src="https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/mineMenuIcon_feedback.png" />下载作品1</view>
+      <view><van-icon wx:if="{{!downLoading}}" name="arrow" color="#BFBFBF" size="42rpx" /><van-loading wx:else type="spinner" /></view>
+    </view>
+    <view bindtap="downLoadWork2">
+      <view><image mode="widthFix" src="https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/mineMenuIcon_feedback.png" />下载作品2</view>
+      <view><van-icon wx:if="{{!downLoading2}}" name="arrow" color="#BFBFBF" size="42rpx" /><van-loading wx:else type="spinner" /></view>
+    </view>
+  </view>
+  <!-- 订单列表 -->
+  <!-- <view class="orderListBox">
+    <view class="title">
+      <view>订单列表</view>
+      <view bindtap="toOrderList">查看更多
+        <van-icon name="arrow" />
+      </view>
+    </view>
+    <view class="orderList">
+      <view class="orderItem" wx:for="{{orderList}}">
+        <view class="goodsInfo">
+          <view class="goodsImg">
+            <image src="https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/magazine/magazine_{{item.group=='初中'?'blue':(item.group=='小高'?'green':'red')}}.png" />
+          </view>
+          <view>
+            <view class="goodsName">《英语角》杂志level {{item.group=='初中'?'3':(item.group=='小高'?'2':'1')}}</view>
+            <view class="goodsTime">下单时间：{{item.creatTime}}</view>
+            <view class="orderUserInfo">
+              <image src="{{item.avatar_url}}" /><text>{{item.name}}</text><text>{{item.phone_number}}</text>
+            </view>
+          </view>
+        </view>
+        <view class="status" style="color: {{shipped?'#758E9D':'#FF7600'}};">{{item.shipped?"已发货":"未发货"}}</view>
+        <view class="price">实付 ¥<text>{{item.totalFee/100}}</text></view>
+      </view>
+    </view>
+  </view> -->
+
+  <!-- 退出登录 -->
+  <!-- <view class="logout">退出登录</view> -->
+</view>
+
+
+
+
+<!--  ——————————————————————————————————  用户端  ——————————————————————————————————  -->
+<view class="userPage" wx:else>
+  <tabbar activeIdx="2"></tabbar>
+  <custom navbar-data='{{navbarData_user}}'></custom>
+  <!-- 头部信息 -->
+  <view class="user_userInfo" style="margin-top: calc({{height}}px + 30rpx);" wx:if="{{login}}">
+    <view>
+      <button class="user_userAvatar" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar"><image src="{{userInfo.avatar_url}}" /></button>
+      <view class="user_userName">
+        <view>{{userInfo.name}}</view>
+        <view><image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/userSignage.png" />{{userType==3?"大学生":(userType==2?"老师":"学生")}}</view>
+      </view>
+    </view>
+  </view>
+	<!-- 未登录 -->
+	<view class="user_userInfo" bindtap="toLogin" style="margin-top: calc({{height}}px + 30rpx);" wx:if="{{!login}}">
+    <view>
+      <view class="user_userAvatar"><image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/noLoginAvatar.png" /></view>
+      <view class="user_userName">立即登录</view>
+    </view>
+    <view><van-icon name="arrow" color="#BFBFBF" size="42rpx" /></view>
+  </view>
+	<!-- 教师编码 -->
+	<!-- <view wx:if="{{userType==2}}" class="teacherCode">
+			<view>邀请学生订购杂志</view>
+      <button class="share" open-type="share">去邀请</button>
+	</view> -->
+  <!-- 操作菜单 -->
+  <view class="user_menu">
+    <view wx:if="{{userType==2||userType==3}}" bindtap="toRaceRecord">
+      <view><image mode="widthFix" src="https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/mineMenuIcon_record.png" />上传记录</view>
+      <view><van-icon name="arrow" color="#BFBFBF" size="42rpx" /></view>
+    </view>
+    <view wx:if="{{userType!=2&&userType!=3}}" bindtap="toRaceRecord">
+      <view><image mode="widthFix" src="https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/mineMenuIcon_record.png" />参赛记录</view>
+      <view><van-icon name="arrow" color="#BFBFBF" size="42rpx" /></view>
+    </view>
+    <view bindtap="toGetPrize">
+      <view><image mode="widthFix" src="https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/mineMenuIcon_getPrize.png" />在线领奖</view>
+      <view><van-icon name="arrow" color="#BFBFBF" size="42rpx" /></view>
+    </view>
+    <view bindtap="toMagezineMall">
+      <view><image mode="widthFix" src="https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/mineMenuIcon_magazineMall.png" />我的地址</view>
+      <view><van-icon name="arrow" color="#BFBFBF" size="42rpx" /></view>
+    </view>
+    <view bindtap="toWxPublic">
+      <view><image mode="widthFix" src="https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/mineMenuIcon_feedback.png" />问题反馈</view>
+      <view><van-icon name="arrow" color="#BFBFBF" size="42rpx" /></view>
+    </view>
+  </view>
+  <view style="text-align: center;font-size: 28rpx;color: #666666;text-decoration: underline;" wx:if="{{userInfo._id=='oatQ75frf_maoU58Ls-GTGUKU9hU'||userInfo._id=='oatQ75Z1_nz6W0XML1OAO2wXeUmg'||userInfo._id=='oatQ75Z1_nz6W0XML1OAO2wXeUmg'}}" bindtap="deleteUser">删除数据</view>
+  <view style="text-align: center;font-size: 28rpx;color: #666666;text-decoration: underline;margin-top: 30rpx;" wx:if="{{userInfo._id=='oatQ75W92ecYxbYGey7XqzTf20G4'||userInfo._id=='oatQ75Z1_nz6W0XML1OAO2wXeUmg'||userInfo._id=='oatQ75bfvZp2eJoHFRPYZrppBBr4'}}" bindtap="changeStatus">切换身份</view>
+</view>
+
+
+<!-- 联系我们弹窗 -->
+<view class="contactPop" wx:if="{{contactPop}}" bindtap="contactPopShow">
+  <image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/contactPop.png" />
+</view>

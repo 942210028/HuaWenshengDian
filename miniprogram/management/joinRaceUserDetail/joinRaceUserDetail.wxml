@@ -1,0 +1,55 @@
+<view class="pageBg"></view>
+<custom navbar-data='{{navbarData}}'></custom>
+<view class="content" style="margin-top: calc({{height}}px + 16rpx);">
+	<view class="userTop">
+		<view>
+			<view class="userAvatar"><image src="{{userDetail.avatar_url}}"/></view>
+			<view>
+				<view class="name">
+					<view class="_name">{{userDetail.name}}</view>
+					<view class="userIcon" wx:if="{{userDetail.type!=1}}"><image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/joinRaceUserDetail/icon_{{userDetail.type==2||userDetail.type==3?'teacher':'admin'}}.png"/>
+						{{userDetail.type==5?"管理员":(userDetail.type==4?"评委":(userDetail.type==3?"大学组":(userDetail.type==2?"老师":"学生")))}}
+					</view>
+				</view>
+				<view class="phone_number">{{userDetail.phone_number}}</view>
+			</view>
+			<view class="edit" bindtap="toEditUserInfo"><image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/joinRaceUserDetail/edit.png" /> 修改资料</view>
+		</view>
+		<view class="school" wx:if="{{userDetail.school}}">
+			<image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/joinRaceUserDetail/icon_school.png" />学校： <text>{{userDetail.school}}</text>
+		</view>
+		<view class="group" wx:if="{{userDetail.group}}">
+			<image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/joinRaceUserDetail/icon_group.png" />参赛组别：<text>{{userDetail.schoolName}}</text>
+		</view>
+
+		<!-- 指导老师 -->
+		<view class="instructor" wx:if="{{userDetail.instructor}}">
+			<view><image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/joinRaceUserDetail/icon_instructor.png" /></view>
+			<view>
+				<view>指导老师</view>
+				<view>{{userDetail.instructor}}</view>
+			</view>
+		</view>
+	</view>
+	<view class="noJoinRace" wx:if="{{userDetail.firstWorks.length==0}}">
+		<view><image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/joinRaceUserDetail/noJoinRace.png"/></view>
+		<view>当前没有参加任何比赛哦～</view>
+	</view>
+	<view class="uploadWork" wx:if="{{userDetail.firstWorks.length>0}}" wx:for="{{userDetail.firstWorks}}">
+		<view>“用英语讲中国故事”-视频创作</view>
+		<view>审阅老师：{{item.judges_name?item.judges_name:"暂无"}}</view>
+		<view>{{item.name}}：{{item.phone_number}}</view>
+		<view>
+			<video custom-cache="{{false}}" src="{{item.video_url}}"></video>
+		</view>
+		<view>
+			<view><image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/joinRaceUserDetail/icon_upload.png"/>已上传</view>
+			<view><image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/joinRaceUserDetail/icon_examine.png"/>{{item.scoreTotal||item.scoreTotal>0?"已审阅":"未审阅"}}</view>
+		</view>
+		<!-- 分数 -->
+		<view class="score {{item.scoreTotal==0?'noScore':'hasScore'}}">
+			<view wx:if="{{item.scoreTotal==0}}">未评分</view>
+			<view wx:else><text>{{item.scoreTotal}}</text>分</view>
+		</view>
+	</view>
+</view>

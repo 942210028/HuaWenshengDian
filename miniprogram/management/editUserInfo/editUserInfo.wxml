@@ -1,0 +1,44 @@
+<view class="pageBg"></view>
+<custom navbar-data='{{navbarData}}'></custom>
+<view style="margin-top: calc({{height}}px + 30rpx);">
+  <view class="avatar_url">
+    <view>上传头像</view>
+    <view>
+			<button wx:if="{{userInfo.type==5}}" class="userAvatarBtn" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar"><image src="{{userInfo.avatar_url}}" /></button>
+			<button wx:else class="userAvatarBtn"><image src="{{userInfo.avatar_url}}" /></button>
+		</view>
+  </view>
+  <view class="name">
+    <view class="title">姓名</view>
+    <view><input value="{{userInfo.name}}" disabled="{{userInfo.type!=5}}" placeholder="请输入姓名" type="text" bindinput="nameInput"/></view>
+  </view>
+  <view class="phone_number">
+    <view class="title">手机号码</view>
+    <view><input value="{{userInfo.phone_number}}" disabled="{{userInfo.type!=5}}" placeholder="请输入手机号" type="number" bindinput="phoneNumberInput"/></view>
+  </view>
+  <view class="type" bindtap="selectType">
+    <view class="title">账号类型</view>
+    <view>{{userInfo.type==4?"评委":(userInfo.type==5?"管理员":"学生")}}</view>
+  </view>
+  <view class="group" wx:if="{{userInfo.type==3}}">
+    <view class="title">参赛组别</view>
+    <view>大学</view>
+  </view>
+</view>
+<view class="sendPrizeBtn" bindtap="sendPrize">发放奖状</view>
+<view class="bottomBtn" bindtap="updateUserInfo">确认修改</view>
+<view wx:if="{{myUser_id=='oatQ75W92ecYxbYGey7XqzTf20G4'||myUser_id=='oatQ75Z1_nz6W0XML1OAO2wXeUmg'||myUser_id=='oatQ75bfvZp2eJoHFRPYZrppBBr4'}}" class="deleteUser" bindtap="deleteUser">删除用户</view>
+<!-- 账号类型 -->
+<van-action-sheet
+  show="{{ typeShow }}"
+  actions="{{ typeActions }}"
+  bind:close="onClose"
+  bind:select="onSelectType"
+/>
+<!-- 参赛组别 -->
+<van-action-sheet
+  show="{{ groupShow }}"
+  actions="{{ groupActions }}"
+  bind:close="onClose"
+  bind:select="onSelectGroup"
+/>

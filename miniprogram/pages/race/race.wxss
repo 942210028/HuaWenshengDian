@@ -1,0 +1,49 @@
+page{
+  background: white;
+}
+.raceBox{
+  width: 686rpx;
+  height: 426rpx;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 10px 2px rgba(139,191,244,0.17);
+  border-radius: 20rpx;
+  margin: 0 auto 30rpx;
+	overflow: hidden;
+}
+.raceBox>view:first-child{
+  width: 686rpx;
+  height: 154rpx;
+  padding: 30rpx 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.raceName{
+  max-width: 330rpx;
+  text-align: left;
+  font-size: 32rpx;
+  color: #333333;
+}
+.raceTime{
+  font-size: 24rpx;
+  color: #666666;
+}
+.raceBox>view:nth-child(2){
+  width: 686rpx;
+  height: 272rpx;
+  display: flex;
+}
+.raceBox>view:nth-child(2)>image{
+  width: 100%;
+  height: 100%;
+}
+.raceJoin{
+  width: 166rpx;
+  height: 54rpx;
+  background: #b81d1d;
+  border-radius: 27rpx;
+  text-align: center;
+  line-height: 54rpx;
+  color: white;
+  font-size: 22rpx;
+}

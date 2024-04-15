@@ -1,0 +1,41 @@
+<custom navbar-data='{{navbarData}}'></custom>
+<view class="page" style="margin-top: {{height+10}}px;">
+  <view class="address">
+    <view>
+			<view><van-icon color="#369AFF" name="location" /></view>
+			<view>{{userInfo.name}}</view>
+			<view>{{userInfo.phone_number}}</view>
+		</view>
+		<view>
+			<view bindtap="toEditAddress">{{userInfo.address?userInfo.address:"添加地址"}}</view>
+			<view><image src="https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/edit.png" /></view>
+		</view>
+  </view>
+	<view class="goods">
+			<view>
+				<image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/magazine/magazine_{{magazineType}}.png" />
+			</view>
+		<view>
+			<view>Level {{magazineType=="red"?"1 中":(magazineType=="green"?"2 下":"3 上")}}旬刊</view>
+			<view>¥15 / 期</view>
+      <view>
+        <view class="{{goodsNum==4?'selectNumber':''}}" data-value="4" bindtap="selectNumber">4期</view>
+        <view class="{{goodsNum==6?'selectNumber':''}}" data-value="6" bindtap="selectNumber">6期</view>
+        <view class="{{goodsNum==12?'selectNumber':''}}" data-value="12" bindtap="selectNumber">12期</view>
+      </view>
+		</view>
+	</view>
+</view>
+<!-- 提交订单 -->
+<van-submit-bar
+  label="实付： "
+  price="{{ totalPrice }}"
+  button-text="提交订单"
+  bind:submit="onSubmit"
+  button-class="submit-bar-button"
+/>
+
+<!-- 购买成功 -->
+<view class="buysuccessImg" wx:if="{{successIcon}}" bindtap="successIcon">
+  <image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/buysuccessImg.png" />
+</view>

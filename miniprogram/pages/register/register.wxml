@@ -1,0 +1,240 @@
+<custom navbar-data='{{navbarData}}'></custom>
+<view class="pageTopBg" style="margin-top: {{height}}px;">
+	<image mode="heightFix" src="https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/register_{{userType==3?'school':(userType==2?'teacher':'student')}}.png" />
+</view>
+<!-- 学生信息 -->
+<view class="form" wx:if="{{userType==1}}">
+	<van-cell-group>
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ studentInfo.username }}"
+    label="姓名"
+    placeholder="请填写真实姓名"
+		data-value="username"
+		bind:input="inputChange"
+  />
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ studentInfo.school }}"
+    label="学校"
+    placeholder="请填写学校名称"
+		data-value="school"
+		bind:input="inputChange"
+  />
+	<van-collapse value="{{ groupActive }}" bind:change="onChange_group">
+		<van-collapse-item title="参赛组别" value="{{studentInfo.group?studentInfo.group:''}}" name="2">
+			<view class="selectList" data-value="{{item}}" bindtap="selectGroup" wx:for="{{groupList}}">{{item}}组</view>
+		</van-collapse-item>
+	</van-collapse>
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ studentInfo.otherName }}"
+    label="主要联系人"
+    placeholder="请填写姓名"
+		data-value="otherName"
+		bind:input="inputChange"
+  />
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ studentInfo.phone }}"
+    label="手机号"
+    placeholder="请填写手机号"
+		data-value="phone"
+		bind:input="inputChange"
+  />
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ studentInfo.email }}"
+    label="邮箱"
+    placeholder="请填写邮箱"
+		data-value="email"
+		bind:input="inputChange"
+  />
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ studentInfo.instructorName }}"
+    label="指导老师（选填）"
+    placeholder="没有可不填或咨询老师"
+		data-value="instructorName"
+		bind:input="inputChange"
+  />
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ studentInfo.instructorPhone }}"
+    label="指导老师电话（选填）"
+    placeholder="没有可不填或咨询老师"
+		data-value="instructorPhone"
+		bind:input="inputChange"
+  />
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ studentInfo.city }}"
+    label="所在城市"
+    placeholder="请选择你在的城市"
+		data-value="city"
+    disabled
+    bind:click-input="modifyCityShow"
+  />
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ studentInfo.address }}"
+    label="邮寄地址"
+    placeholder="请填写你的具体地址"
+		data-value="address"
+		bind:input="inputChange"
+  />
+</van-cell-group>
+</view>
+<!-- 老师信息 -->
+<view class="form" wx:if="{{userType==2}}">
+	<van-cell-group>
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ teacherInfo.username }}"
+    label="教师姓名"
+    placeholder="请填写真实姓名"
+		data-value="username"
+		bind:input="inputChange"
+  />
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ teacherInfo.schoolName }}"
+    label="学校名称"
+    placeholder="所在学校"
+		data-value="schoolName"
+		bind:input="inputChange"
+  />
+	<van-collapse value="{{ groupActive }}" bind:change="onChange_group">
+		<van-collapse-item title="参赛组别" value="{{teacherInfo.group?teacherInfo.group:''}}" name="2">
+			<view class="selectList" data-value="{{item}}" bindtap="selectGroup" wx:for="{{groupList}}">{{item}}组</view>
+		</van-collapse-item>
+	</van-collapse>
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ teacherInfo.phone }}"
+    label="手机号"
+    placeholder="请填写手机号"
+		data-value="phone"
+		bind:input="inputChange"
+  />
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ teacherInfo.city }}"
+    label="所在城市"
+    placeholder="请选择你在的城市"
+		data-value="city"
+    disabled
+    bind:click-input="modifyCityShow"
+  />
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ teacherInfo.address }}"
+    label="邮寄地址"
+    placeholder="请填写你的具体地址"
+		data-value="address"
+		bind:input="inputChange"
+  />
+</van-cell-group>
+</view>
+<!-- 校方信息 -->
+<view class="form" wx:if="{{userType==3}}">
+	<van-cell-group>
+		<van-field
+			input-align="right"
+			title-width="330rpx"
+			value="{{ modifySchoolContent }}"
+			label="学校名称及专业"
+			placeholder="请选择学校以及在读专业"
+			data-value="schoolName"
+			disabled
+			bind:click-input="modifySchoolShow"
+		/>
+		<van-field
+			input-align="right"
+			title-width="330rpx"
+			value="{{ schoolInfo.grade }}"
+			label="年级"
+			placeholder="请填写所在年级"
+			data-value="grade"
+			disabled
+			bind:click-input="modifyGradeShow"
+		/>
+		<van-field
+			input-align="right"
+			title-width="330rpx"
+			value="{{ schoolInfo.name }}"
+			label="姓名"
+			placeholder="请填写真实姓名"
+			data-value="name"
+			bind:input="inputChange"
+		/>
+		<van-field
+			input-align="right"
+			title-width="330rpx"
+			value="{{ schoolInfo.phone }}"
+			label="手机号"
+			placeholder="请填写手机号"
+			data-value="phone"
+			bind:input="inputChange"
+		/>
+		<van-field
+			input-align="right"
+			title-width="330rpx"
+			value="{{ schoolInfo.email }}"
+			label="邮箱"
+			placeholder="请填写邮箱"
+			data-value="email"
+			bind:input="inputChange"
+		/>
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ schoolInfo.city }}"
+    label="所在城市"
+    placeholder="请选择你在的城市"
+		data-value="city"
+    disabled
+    bind:click-input="modifyCityShow"
+  />
+  <van-field
+    input-align="right"
+		title-width="330rpx"
+		value="{{ schoolInfo.address }}"
+    label="邮寄地址"
+    placeholder="请填写你的具体地址"
+		data-value="address"
+		bind:input="inputChange"
+  />
+	</van-cell-group>
+</view>
+<view class="commit" bindtap="commit" >下一步</view>
+
+
+<!-- 遮罩层 -->
+<view class="mask" wx:if="{{modifyCityShow}}" bindtap="modifyCityShow"></view>
+<!-- 城市选择列表 -->
+<van-area class="modifyCityShow" value="{{cityCode}}" wx:if="{{modifyCityShow}}" area-list="{{ areaList }}" bind:confirm="modifyCity" bind:cancel="modifyCityShow" />
+
+
+<view class="mask" wx:if="{{modifyGradeShow}}" bindtap="modifyGradeShow"></view>
+<!-- 年级选择列表 -->
+<van-picker class="modifyGradeShow" show-toolbar columns="{{ gradeColumns }}" wx:if="{{modifyGradeShow}}" bind:confirm="modifyGrade" bind:cancel="modifyGradeShow" />
+
+
+<view class="mask" wx:if="{{modifySchoolShow}}" bindtap="modifySchoolShow"></view>
+<!-- 学校选择列表 -->
+<van-picker class="modifySchoolShow" show-toolbar columns="{{ schoolColumns }}" wx:if="{{modifySchoolShow}}" bind:confirm="modifyschool" bind:change="modifyschoolOnChange" bind:cancel="modifySchoolShow" />

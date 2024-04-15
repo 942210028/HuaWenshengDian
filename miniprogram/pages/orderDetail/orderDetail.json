@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+		"custom": "/components/custom/custom",
+		"van-checkbox": "@vant/weapp/checkbox/index"
+	}
+}

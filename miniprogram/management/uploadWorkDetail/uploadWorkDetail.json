@@ -1,0 +1,7 @@
+{
+	"usingComponents": {
+		"custom": "/components/custom/custom",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-stepper": "@vant/weapp/stepper/index"
+	}
+}

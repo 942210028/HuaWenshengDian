@@ -1,0 +1,39 @@
+<custom navbar-data='{{navbarData}}'></custom>
+<view class="seachbox" style="top: {{height}}px;background-position: 0 -{{height}}px;">
+	<view class="input">
+		<input placeholder="输入姓名/手机号查询用户" type="text" value="{{searchValue}}" bindinput="inputValue" bindconfirm="search" />
+		<van-icon name="search" />
+	</view>
+	<view class="seachConfirm" bindtap="search">确定</view>
+</view>
+<!-- 用户列表 -->
+<view class="userList_box" style="margin-top: calc({{height}}px + 118rpx);">
+	<view class="userList">
+		<view wx:for="{{searchList.length>0?searchList:userList}}" wx:key="index" wx:for-index="index" data-detail="{{item}}" data-id="{{item._openid}}" bindtap="toJoinRaceUserDetail">
+			<view class="userListItem">
+				<view class="userAvatar">
+					<image src="{{item.avatar_url}}" />
+				</view>
+				<view class="userInfo">
+					<view>{{item.name}}</view>
+					<view>{{item.schoolName}}</view>
+				</view>
+			</view>
+			<view>查看详情
+				<van-icon name="arrow" />
+			</view>
+		</view>
+	</view>
+</view>
+<view class="weui-loadmore" wx:if="{{searchList.length<1}}">
+	<view wx:if='{{isLoadingMoreData}}'>
+		<view class="weui-loading"></view>
+		<view class="weui-loadmore-tips">正在加载更多...</view>
+	</view>
+	<view wx:elif='{{hasMoreData}}'>
+		<view class="weui-loadmore-tips" bindtap='onReachBottom'>点击加载更多</view>
+	</view>
+	<view wx:else>
+		<view class="weui-loadmore-tips">没有更多用户啦~</view>
+	</view>
+</view>

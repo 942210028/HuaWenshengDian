@@ -1,0 +1,18 @@
+<view class="page"></view>
+<view>
+	<custom navbar-data='{{navbarData}}'></custom>
+	<view class="logo" style="margin-top: {{height}}px;">
+		<image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/newLogo2.png" />
+	</view>
+	<view>
+		<view wx:for="{{userList}}" class="userList" data-type="{{item.type}}" bindtap="toLogin">
+			<view>
+				<image mode="heightFix" src="{{item.icon}}" />
+			</view>
+			<view>
+				<view class="user">{{item.user}}</view>
+				<view class="tapEntrance">点击进入 ></view>
+			</view>
+		</view>
+	</view>
+</view>

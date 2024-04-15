@@ -1,0 +1,86 @@
+{
+	"pages": [
+		"pages/index/index",
+		"pages/race/race",
+		"pages/userInfo/userInfo",
+		"pages/examine/examine",
+		"pages/mine/mine",
+		"pages/entrance/entrance",
+		"pages/login/login",
+		"pages/raceRecord/raceRecord",
+		"pages/getPrize/getPrize",
+		"pages/shoppingAddress/shoppingAddress",
+		"pages/raceDetail/raceDetail",
+		"pages/agreement/agreement",
+		"pages/orderDetail/orderDetail",
+		"pages/register/register",
+		"pages/uploadWorks/uploadWorks",
+		"pages/uploadWorksEdit/uploadWorksEdit",
+		"pages/confirmOrder/confirmOrder",
+		"pages/licence/licence",
+		"pages/uploadRecord/uploadRecord",
+		"pages/webView/webView",
+		"pages/indexSubPage/arrondiA/arrondiA",
+		"pages/indexSubPage/video/video",
+		"pages/getPrize/prizeDetail",
+		"pages/workDetail/workDetail"
+	],
+	"subpackages": [
+		{
+			"root": "management",
+			"pages": [
+				"scoreSort/scoreSort",
+				"examineDetail/examineDetail",
+				"orderList/orderList",
+				"orderDetail/orderDetail",
+				"editUserInfo/editUserInfo",
+				"uploadWorkList/uploadWorkList",
+				"joinRaceUserList/joinRaceUserList",
+				"joinRaceUserDetail/joinRaceUserDetail",
+				"uploadWorkDetail/uploadWorkDetail",
+				"firstWorkList/firstWorkList",
+				"uploadWorkListByJudge/uploadWorkListByJudge"
+			]
+		}
+	],
+	"window": {
+		"navigationStyle": "custom",
+		"navigationBarTextStyle": "white"
+	},
+	"useExtendedLib": {
+		"weui": true
+	},
+	"tabBar": {
+		"custom": true,
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"text": "主页"
+			},
+			{
+				"pagePath": "pages/race/race",
+				"text": "活动"
+			},
+			{
+				"pagePath": "pages/userInfo/userInfo",
+				"text": "用户信息"
+			},
+			{
+				"pagePath": "pages/examine/examine",
+				"text": "在线审阅"
+			},
+			{
+				"pagePath": "pages/mine/mine",
+				"text": "我的"
+			}
+		]
+	},
+	"networkTimeout": {
+    "request": 1000000,
+    "connectSocket": 100000,
+    "uploadFile": 1000000,
+    "downloadFile": 100000
+  },
+	"sitemapLocation": "sitemap.json",
+	"lazyCodeLoading": "requiredComponents"
+}

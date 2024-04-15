@@ -1,0 +1,279 @@
+.adminPage{
+  display: block;
+  min-height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: url(https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/pageBg.png) no-repeat, linear-gradient(180deg, #F5EFFF 0%, #FFFFFF 100%) no-repeat;
+  background-size: 100%;
+	padding-bottom: 116rpx;
+}
+.pageTop{
+	padding: 42rpx 32rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.pageTop>view:first-child{
+	display: flex;
+	align-items: center;
+}
+.userAvatar{
+	display: flex;
+	margin-right: 28rpx;
+}
+.userAvatar>image{
+	width: 122rpx;
+	height: 122rpx;
+	border-radius: 50%;
+}
+.userName>view:nth-child(1){
+	font-size: 36rpx;
+	display: flex;
+	align-items: center;
+}
+.userName text{
+	display: inline-block;
+	width: 68rpx;
+	height: 36rpx;
+	border-radius: 18rpx;
+	background-color: #3A454B;
+	color: #FFFFFF;
+	font-size: 20rpx;
+	text-align: center;
+	line-height: 36rpx;
+	margin-left: 16rpx;
+}
+.logout{
+	width: 686rpx;
+	height: 112rpx;
+	background: #F7FAFF;
+	border-radius: 30rpx;
+	box-shadow: 0px 3px 6px 1px rgba(0,47,118,0.08);
+	color: #3A454B;
+	font-size: 30rpx;
+	text-align: center;
+	line-height: 112rpx;
+	position: fixed;
+	bottom: 146rpx;
+	left: 32rpx;
+}
+.orderListBox{
+	width: 100%;
+	background: white;
+	box-shadow: 0px 3px 6px 1px rgba(0,47,118,0.08);
+	border-radius: 30rpx;
+	padding: 50rpx 32rpx 30rpx;
+}
+.orderListBox>.title{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-size: 30rpx;
+}
+.orderList{
+	width: 100%;
+	max-height: 50vh;
+	overflow: auto;
+}
+.orderListBox>.title>view:last-child{
+	color: #b81d1d;
+	font-size: 26rpx;
+}
+.goodsImg{
+	display: flex;
+	margin-right: 20rpx;
+}
+.goodsImg>image{
+	width: 156rpx;
+	height: 160rpx;
+	border-radius: 30rpx;
+	background: #FFFFFF;
+	box-shadow: 0px 3px 6px 1px rgba(0,47,118,0.08);
+}
+.orderUserInfo{
+	display: flex;
+	align-items: center;
+	font-size: 22rpx;
+	color: #999999;
+}
+.orderUserInfo>image{
+	width: 44rpx;
+	height: 44rpx;
+	border-radius: 50%;
+	margin-right: 8rpx;
+}
+.orderItem{
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	padding: 30rpx 0;
+	border-bottom: 2rpx solid #EFF4FF;
+}
+.price{
+	position: absolute;
+	right: 0;
+	bottom: 22rpx;
+	font-size: 28rpx;
+}
+.price text{
+	font-size: 36rpx;
+	font-weight: bold;
+}
+.goodsName{
+	font-size: 30rpx;
+}
+.goodsTime{
+	font-size: 22rpx;
+	color: #999999;
+	line-height: 22rpx;
+	margin: 16rpx 0;
+}
+.goodsInfo{
+	display: flex;
+	align-items: center;
+}
+.status{
+	font-size: 28rpx;
+}
+.orderList>.orderItem:last-child{
+	border-bottom: 0;
+}
+
+
+
+/* ——————————————————————   用户端    —————————————————————— */
+.userPage{
+  display: block;
+  min-height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: white;
+	padding-bottom: 116rpx;
+}
+.user_userInfo{
+  width: 686rpx;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.user_userInfo>view:first-child{
+  display: flex;
+  align-items: center;
+}
+.user_userAvatar::after{
+  border: none;
+}
+.user_userAvatar{
+	width: 114rpx;
+	height: 114rpx;
+	border-radius: 50%;
+	display: flex;
+  margin-right: 50rpx;
+  padding: 0;
+  border: none;
+}
+.user_userAvatar>image{
+	width: 114rpx;
+	height: 114rpx;
+	border-radius: 50%;
+}
+.user_userName>view:first-child{
+  font-size: 36rpx;
+  color: #262626;
+  margin-bottom: 20rpx;
+}
+.user_userName>view:nth-child(2){
+  /* width: 120rpx; */
+  height: 42rpx;
+  background: linear-gradient(270deg, #C9C9C9 0%, #E2E2E2 100%);
+  border-radius: 22rpx;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  color: #868F9E;
+  padding: 0 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.user_userName>view:nth-child(2) image{
+  width: 22rpx;
+  height: 20rpx;
+}
+.user_menu{
+  width: 686rpx;
+  margin: 80rpx auto;
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  box-shadow: 0px 2px 5px 10px rgba(224,226,228,0.18);
+  font-size: 30rpx;
+  padding: 0 32rpx;
+  color: #262626;
+}
+.user_menu>view{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 112rpx;
+}
+.user_menu>view>view{
+  display: flex;
+  align-items: center;
+}
+.user_menu>view image{
+  width: 32rpx;
+  height: 0;
+  margin-right: 20rpx;
+}
+.teacherCode{
+	margin: 28rpx auto -50rpx;
+	padding: 32rpx 46rpx;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 686rpx;
+	height: 172rpx;
+	border-radius: 12rpx;
+	background: url(https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/teacherSignageBg.png) no-repeat;
+	background-size: 100% 100%;
+}
+.teacherCode>view:first-child{
+	color: white;
+	font-size: 32rpx;
+}
+.teacherCode>view:first-child>view:last-child{
+	color: rgb(255, 255, 255,0.5);
+	font-size: 24rpx;
+}
+.teacherCode>button:last-child{
+	width: 144rpx;
+	height: 52rpx;
+	text-align: center;
+	line-height: 52rpx;
+	background: white;
+	color: #653C09;
+	font-size: 24rpx;
+  border-radius: 28rpx;
+  margin: 0;
+}
+.teacherCode>button:last-child::after{
+  border: none;
+}
+.contactPop{
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contactPop image{
+  width: 686rpx;
+  height: 1220rpx;
+}

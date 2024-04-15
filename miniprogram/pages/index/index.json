@@ -1,0 +1,7 @@
+{
+	"usingComponents": {
+    "tabbar": "/components/bottomNavBar/bottomNavBar",
+		"custom": "/components/custom/custom",
+		"van-icon": "@vant/weapp/icon/index"
+	}
+}

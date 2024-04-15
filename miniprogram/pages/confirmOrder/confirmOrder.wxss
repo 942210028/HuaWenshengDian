@@ -1,0 +1,118 @@
+page{
+  background: #F8F8F8;
+}
+.van-button--danger{
+  background: #369AFF !important;
+  border-color: #369AFF !important;
+}
+.address{
+	width: 686rpx;
+	height: 160rpx;
+	background: #FFFFFF;
+	border-radius: 20rpx;
+	margin: 0 auto;
+	padding: 28rpx 0;
+}
+.address>view:nth-child(1){
+	display: flex;
+	align-items: center;
+	margin: 0rpx 0 14rpx 26rpx;
+}
+.address>view:nth-child(2){
+	display: flex;
+	align-items: center;
+	font-size: 26rpx;
+	line-height: 26rpx;
+	color: #595959;
+	justify-content: center;
+	width: 560rpx;
+	margin-right: 28rpx;
+	margin-left: auto;
+}
+.address>view:nth-child(2)>view:first-child{
+	max-width: 528rpx;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	text-align: center;
+}
+.address>view:nth-child(2) image{
+	width: 24rpx;
+	height: 24rpx;
+}
+.address>view:nth-child(1)>view:nth-child(2){
+	font-size: 30rpx;
+	margin: 0 22rpx;
+}
+.address>view:nth-child(1)>view:nth-child(3){
+	font-size: 26rpx;
+	color: #6E6D6D;
+}
+.goods{
+	width: 686rpx;
+	height: 192rpx;
+	background: #FFFFFF;
+	border-radius: 20rpx;
+	margin: 20rpx auto;
+	padding: 26rpx 32rpx;
+	display: flex;
+	align-items: center;
+}
+.goods>view:first-child{
+	width: 118rpx;
+	height: 142rpx;
+	display: flex;
+}
+.goods>view:last-child{
+	width: 476rpx;
+	margin-left: 28rpx;
+}
+.goods>view:first-child image{
+	width: 118rpx;
+	height: 142rpx;
+}
+.goods>view:last-child>view:nth-child(2){
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: #F7676E;
+}
+.goods>view:last-child>view:nth-child(3){
+  width: 322rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16rpx;
+  margin-right: 0;
+  margin-left: auto;
+}
+.goods>view:last-child>view:nth-child(3) view{
+  width: 94rpx;
+  height: 38rpx;
+  border-radius: 20rpx;
+  background: #BBE2FB;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 38rpx;
+  color: white;
+}
+.selectNumber{
+  border: 2rpx solid #369AFF;
+  background: white !important;
+  color: #666666 !important;
+}
+.buysuccessImg{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.9);
+}
+.buysuccessImg image{
+  width: 630rpx;
+  height: 614rpx;
+}

@@ -1,0 +1,21 @@
+<view>
+  <custom navbar-data='{{navbarData}}'></custom>
+<view style="margin-top: {{height+20}}px;">
+  <view class="recordItem" wx:for="{{raceRecord}}">
+    <view>
+      <image mode="aspectFill" src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/raceImg1.png"/>
+    </view>
+    <view>
+      <view>{{item.name}}</view>
+      <view>作品名称：{{item.title}}</view>
+    </view>
+  </view>
+  <view class="addMore" wx:if="{{raceRecord.length<(userType==2?5:10)}}">
+    <view class="add" bindtap="toUploadWork">
+      <view><view></view><view></view></view>
+    </view>
+    <view class="ellipsis"><view></view><view></view><view></view></view>
+  </view>
+  <view class="raceRecordLength">您还可以上传{{(userType==2?5:10)-raceRecord.length}}/{{userType==2?5:10}}份作品</view>
+</view>
+</view>

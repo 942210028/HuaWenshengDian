@@ -1,0 +1,29 @@
+<view class="pageBg"></view>
+<custom navbar-data='{{navbarData}}'></custom>
+<view class="workList" style="margin-top: calc({{height}}px + 20rpx);">
+	<view class="workItem" wx:for="{{workList}}" wx:for-item="item">
+		<view>
+			<view class="workVideoCover">
+				<video custom-cache="{{false}}" src="{{item.video_url2}}"></video>
+				<view data-index="{{index}}" data-id="{{item._id}}" data-url="{{item.video_url2}}" catchtap="{{!item.progress?'onDownloadClick':''}}">{{item.progress?(item.progress<100?"已下载"+item.progress+"%":"下载完成"):"下载视频"}}</view>
+			</view>
+			<view class="uploadInfo">
+				<view><text>{{item.title}}</text> <text>{{item.schoolName}}</text></view>
+				<view>{{item.name}}</view>
+				<view>{{item.phone_number}}</view>
+			</view>
+		</view>
+	</view>
+</view>
+<view class="weui-loadmore">
+	<view wx:if='{{isLoadingMoreData}}'>
+		<view class="weui-loading"></view>
+		<view class="weui-loadmore-tips">正在加载更多...</view>
+	</view>
+	<view wx:elif='{{hasMoreData}}'>
+		<view class="weui-loadmore-tips" bindtap='onReachBottom'>点击加载更多</view>
+	</view>
+	<view wx:else>
+		<view class="weui-loadmore-tips">没有更多作品啦~</view>
+	</view>
+</view>

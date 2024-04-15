@@ -1,0 +1,18 @@
+<custom navbar-data='{{navbarData}}'></custom>
+<view style="margin-top: {{height}}px;">
+	<!-- 无可领奖项 -->
+<view class="noPrize" wx:if="{{prizeList.length==0}}">
+	<image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/getprize_noprize.png" />
+	<view>暂无奖项可领</view>
+</view>
+<!-- 领奖列表 -->
+<view class="getPrizeList" wx:else>
+	<view class="prizeItem" wx:for="{{prizeList}}">
+		<view>
+			<view><image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/getPrize_raceIcon.png" />用英语讲中国故事</view>
+			<view><image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/getPrize_prizeIcon.png" />{{item.name}}</view>
+		</view>
+		<view data-detail="{{item}}" bindtap="toGetPrize">去领奖</view>
+	</view>
+</view>
+</view>

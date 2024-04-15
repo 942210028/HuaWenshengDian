@@ -1,0 +1,60 @@
+<view class="page">
+  <custom navbar-data='{{navbarData}}'></custom>
+  <view class="cover" style="background: url(https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/magazine/magazine_{{magazineType}}.png) no-repeat;background-size: 100% 100%;">
+  </view>
+  <view class="magazineDetail">
+    <view class="magazine">
+      <view class="magazineCover"><image src="https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/magazine/magazine_{{magazineType}}.png" /></view>
+      <view class="magazineInfo">
+        <view>Level {{magazineType=="red"?"1 中":(magazineType=="green"?"2 下":"3 上")}}旬刊</view>
+        <view>{{magazineType=="red"?"适合1—4年级":(magazineType=="green"?"适合5—6年级":"适合7—9年级")}}</view>
+        <view>{{magazineType=="red"?"双语文化教育类综合性期刊，图文结合启蒙英语思维，网罗中外文化知识、经典绘本故事再创作。轻松掌握易学通。":(magazineType=="green"?"双语文化教育类综合性期刊，弘扬我国经典国学、传递正确价值观，用英语的表达方式，阅古赏今。":"双语文化教育类综合性期刊，汇聚采撷中西文化，名篇名家作品赏析，语言运用技巧深入浅出，融合中华神话绘本，精进双语思维。")}}</view>
+        <view>¥ 15.00 / 期</view>
+      </view>
+    </view>
+    <view class="title">
+      杂志简介
+    </view>
+    <view class="content">
+      <text>《英语角》杂志由中国外文出版发行事业局主管，人民画报社主办，《英语角》杂志社有限责任公司出品，是符合国家宏观战略基础教育优先发展，素质教育全面推进的要求，也是我国首份适合中小学生阅读、高质量的综合类刊物。\n\n外文局拥有140余位各国语种顶级翻译专家权威坐镇，杂志集结了中、外数十位资深编辑，并且拥有专门的自然科学类和人文社科类资深英文母语编辑专家。另与各大院校在职并有较大弹性工作时间的专业外籍教师，以及可为杂志提供优秀内容的各行业专业编辑都保持着紧密的合作关系。\n\n自创刊以来，在用英语作为载体弘扬中华文化方面进行了积极的探索和实践，并形成了一系列模式创新。更是连续入选国家教育部、文化部、新闻广电出版总局联合中国期刊协会以及中国教育装备行业协会推荐的《全国中小学图书馆(室)推荐优秀期刊目录》，受到了师生及家长们的高度认可。\n\n主管单位:中国外文出版发行事业局\n主办单位:人民画报社\n出版单位:《英语角》杂志社有限责任公司\n国内统一刊号:CN11-4565/G4\n国际标准刊号:ISSN 1009-9719
+      </text>
+    </view>
+  </view>
+  <view class="title">
+    选择商品
+  </view>
+  <view class="chooseGoods">
+    <view class="chooseGoods_cover">
+      <view>
+        <image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/magazine/magazine_{{magazineType}}.png" />
+      </view>
+      <view>
+        进入海选<view>
+          <view>√</view>
+        </view>
+      </view>
+    </view>
+    <view class="goodsInfo">
+      <view>Level {{magazineType=="blue"?"3 上":(magazineType=="green"?"2 下":"1 中")}}旬刊</view>
+      <view>4期起订</view>
+      <view>¥15/期</view>
+      <view>
+        <view class="{{goodsNum==4?'selectNumber':''}}" data-value="4" bindtap="selectNumber">4期</view>
+        <view class="{{goodsNum==6?'selectNumber':''}}" data-value="6" bindtap="selectNumber">6期</view>
+        <view class="{{goodsNum==12?'selectNumber':''}}" data-value="12" bindtap="selectNumber">12期</view>
+      </view>
+    </view>
+  </view>
+  <view class="buttomTitle">
+    买家须知
+  </view>
+  <view class="buttomContent">
+    <text>比赛分为海选、复赛、决赛三个阶段。\n分三个组别分开竞赛：小学低年级组（1-4年级）、小学高年级组（5-6年级）、初中组（7-9年级）。\n遵循自愿参加原则，活动期间，凡报名及参赛的学生需成为《EC英语角》杂志读者（未征订杂志的学生需购买四期杂志，60元/四期/包邮）。</text>
+  </view>
+  <view class="owned" wx:if="{{is_yangzhou}}">
+    <van-checkbox shape="square" value="{{ checked }}" checked-color="#1877f8" bind:change="onChange">
+      我已订阅过该杂志，直接参与比赛
+    </van-checkbox>
+  </view>
+  <view class="commit" bindtap="{{checked?'backToIndex':'toBuy'}}">{{checked?'完成报名':'立即购买'}}</view>
+</view>

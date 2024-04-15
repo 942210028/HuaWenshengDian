@@ -1,0 +1,220 @@
+page {
+	padding-bottom: 116rpx;
+}
+.pageBg {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	background: url(https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/pageBg.png) no-repeat, linear-gradient(180deg, #F5EFFF 0%, #FFFFFF 100%);
+	background-size: 100%;
+	z-index: -1;
+}
+.content{
+	width: 686rpx;
+	margin: 0 auto;
+	padding: 30rpx;
+	background: #F7F2FF;
+	box-shadow: 0px 3px 6px 1px rgba(0,47,118,0.08);
+	border-radius: 30rpx;
+}
+.userTop{
+	width: 100%;
+	background: url(https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/uploadWorkDetailUserIcon.png) no-repeat;
+	background-size: 308rpx 270rpx;
+	background-position: 300rpx 26rpx;
+	position: relative;
+	padding-bottom: 30rpx;
+}
+.userAvatar{
+	width: 128rpx;
+	height: 128rpx;
+	display: flex;
+	margin-right: 20rpx;
+}
+.userAvatar image{
+	width: 128rpx;
+	height: 128rpx;
+	border-radius: 50%;
+}
+.userTop>view:nth-child(1){
+	display: flex;
+	align-items: center;
+}
+.userTop>view:nth-child(1)>view:last-child{
+	margin-right: 0;
+	margin-left: auto;
+}
+.userIcon{
+	display: flex;
+	align-items: center;
+	font-size: 26rpx;
+	color: #FF7600;
+	line-height: 26rpx;
+}
+.userIcon image{
+	width: 18rpx;
+	height: 22rpx;
+	margin-right: 6rpx;
+}
+.edit{
+	display: flex;
+	align-items: center;
+	font-size: 24rpx;
+	color: #000000;
+	line-height: 24rpx;
+}
+.edit image{
+	width: 18rpx;
+	height: 20rpx;
+	margin-right: 6rpx;
+}
+.name{
+	display: flex;
+	align-items: flex-end;
+}
+._name{
+	max-width: 240rpx;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 48rpx;
+	line-height: 48rpx;
+	color: #3A454B;
+	margin-right: 16rpx;
+}
+.phone_number{
+	font-size: 24rpx;
+	line-height: 24rpx;
+	color: #5D6D75;
+	margin-top: 20rpx;
+}
+.school,.group{
+	display: flex;
+	align-items: center;
+	color: #3A454B;
+	font-size: 26rpx;
+	line-height: 26rpx;
+	margin-top: 32rpx;
+}
+.school image,.group image{
+	width: 30rpx;
+	height: 30rpx;
+	margin-right: 20rpx;
+}
+.school text,.group text{
+	font-weight: bold;
+}
+.group{
+	padding-bottom: 30rpx;
+	border-bottom: 2rpx solid #E2EEFF;
+}
+.instructor image{
+	width: 70rpx;
+	height: 72rpx;
+	margin-right: 12rpx;
+}
+.instructor{
+	width: 266rpx;
+	height: 122rpx;
+	background: rgba(255,255,255,0.67);
+	box-shadow: 0px 3px 6px 1px rgba(0,47,118,0.08);
+	border-radius: 62rpx 0px 0px 62rpx;
+	padding: 0 32rpx;
+	display: flex;
+	align-items: center;
+	position: absolute;
+	right: -62rpx;
+	top: 112rpx;
+}
+.instructor>view>view:first-child{
+	font-size: 26rpx;
+	color: #666666;
+}
+.instructor>view>view:last-child{
+	font-size: 32rpx;
+	color: #3A454B;
+	white-space: nowrap;
+}
+.uploadWork>view:nth-child(1){
+	font-size: 40rpx;
+	line-height: 40rpx;
+	color: #3A454B;
+}
+.uploadWork>view:nth-child(1) text{
+	font-size: 26rpx;
+	color: #337CFB;
+}
+.uploadWork>view:nth-child(2),.uploadWork>view:nth-child(3){
+	font-size: 26rpx;
+	line-height: 26rpx;
+	margin: 24rpx 0;
+}
+.uploadWork>view:nth-child(4){
+	margin-top: 48rpx;
+	text-align: center;
+}
+.uploadWork>view:nth-child(4) video{
+	width: 490rpx;
+	height: 276rpx;
+	border-radius: 28rpx;
+}
+.uploadWork>view:nth-child(5)>view:first-child image{
+	width: 36rpx;
+	height: 26rpx;
+	margin-right: 20rpx;
+}
+.uploadWork>view:nth-child(5)>view:last-child image{
+	width: 28rpx;
+	height: 26rpx;
+	margin-right: 20rpx;
+}
+.uploadWork>view:nth-child(5){
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 32rpx;
+	color: #666666;
+	font-size: 26rpx;
+	line-height: 26rpx;
+	margin-top: 80rpx;
+}
+.uploadWork>view:nth-child(5)>view{
+	display: flex;
+	align-items: center
+}
+.uploadWork{
+	padding: 30rpx 0;
+	border-bottom: 2rpx solid #E2EEFF;
+	position: relative;
+}
+.uploadWork:last-child{
+	border: none;
+}
+.score{
+	position: absolute;
+	right: 0;
+	top: 100rpx;
+}
+.noScore{
+	font-size: 26rpx;
+	line-height: 26rpx;
+	color: #666666;
+}
+.hasScore{
+	color: #370092;
+	font-size: 26rpx;
+}
+.hasScore text{
+	font-size: 40rpx;
+}
+.noJoinRace{
+	text-align: center;
+	color: #999999;
+	font-size: 26rpx;
+}
+.noJoinRace image{
+	width: 484rpx;
+	height: 412rpx;
+	margin-bottom: 52rpx;
+}

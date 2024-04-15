@@ -1,0 +1,82 @@
+<view class="pageBg"></view>
+<custom navbar-data='{{navbarData}}'></custom>
+<view class="searchBar" style="top: {{height}}px;background-position: 0 -{{height}}px;">
+	<view class="searchInput">
+		<view>
+			<image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/searchBar.png" />
+		</view>
+		<view><input type="text" confirm-type="search" value="{{searchInput}}" bindconfirm="searchValue" bindinput="searchInput" placeholder="输入姓名/手机号查询用户" /></view>
+	</view>
+	<view bindtap="sieveShow">
+		<view>
+			<image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/sieveIcon.png" />
+		</view>
+		<view>筛选</view>
+	</view>
+</view>
+<!-- <view class="typeMenu" style="top: calc({{height}}px + 120rpx);background-position: 0 calc(-{{height}}px - 120rpx);">
+	<view class="{{typeMenuSelect=='全部'?'typeMenuSelect':''}}" data-index="全部" bindtap="typeMenuSelect">全部</view>
+	<view class="{{typeMenuSelect=='小低'?'typeMenuSelect':''}}" data-index="小低" bindtap="typeMenuSelect">小低组</view>
+	<view class="{{typeMenuSelect=='小高'?'typeMenuSelect':''}}" data-index="小高" bindtap="typeMenuSelect">小高组</view>
+	<view class="{{typeMenuSelect=='初中'?'typeMenuSelect':''}}" data-index="初中" bindtap="typeMenuSelect">初中组</view>
+</view>
+<view class="screenMenu" style="top: calc({{height}}px + 236rpx);background-position: 0 calc(-{{height}}px - 236rpx);"> -->
+<view class="screenMenu" style="top: calc({{height}}px + 120rpx);background-position: 0 calc(-{{height}}px - 120rpx);">
+	<view class="screenType">
+		<view class="{{screenSelect==0?'screenSelect':''}}" data-index="0" bindtap="screenSelect">待审核文件</view>
+		<view class="{{screenSelect==1?'screenSelect':''}}" data-index="1" bindtap="screenSelect">排名</view>
+	</view>
+	<view bindtap="refresh">
+		刷新
+		<image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/refresh.png" />
+	</view>
+</view>
+<!-- <view class="workList" style="margin-top: calc({{height}}px + 340rpx);"> -->
+<view class="workList" style="margin-top: calc({{height}}px + 236rpx);">
+	<view class="workItem" wx:for="{{searchList.length>0?searchList:workList}}" wx:for-item="item" data-id="{{item._id}}" bindtap="toUploadWorkDetail">
+		<view>
+			<view class="workVideoCover">
+				<view></view>
+				<video custom-cache="{{false}}" src="{{item.video_url}}" show-play-btn="{{false}}" show-center-play-btn="{{false}}" show-fullscreen-btn="{{false}}"></video>
+				<view data-index="{{index}}" data-id="{{item._id}}" data-url="{{item.video_url}}" catchtap="{{!item.progress?'onDownloadClick':''}}">{{item.progress?(item.progress<100?"已下载"+item.progress+"%":"下载完成"):"文件下载"}}</view>
+			</view>
+			<view class="uploadInfo">
+				<view><text>{{item.title}}</text> <text>{{item.schoolName}}</text></view>
+				<view>{{item.name}}</view>
+				<view>{{item.phone_number}}</view>
+			</view>
+			<view><text wx:if="{{item.scoreTotal>0}}">{{item.scoreTotal}}</text>{{!item.scoreTotal||item.scoreTotal==0?"待评分":"分"}}</view>
+		</view>
+		<view>查看作品
+			<van-icon name="arrow" />
+		</view>
+	</view>
+</view>
+<view class="weui-loadmore">
+	<view wx:if='{{isLoadingMoreData}}'>
+		<view class="weui-loading"></view>
+		<view class="weui-loadmore-tips">正在加载更多...</view>
+	</view>
+	<view wx:elif='{{hasMoreData}}'>
+		<view class="weui-loadmore-tips" bindtap='onReachBottom'>点击加载更多</view>
+	</view>
+	<view wx:else>
+		<view class="weui-loadmore-tips">没有更多作品啦~</view>
+	</view>
+</view>
+
+
+
+<van-popup show="{{sieveShow}}" round position="bottom" bind:close="sieveShow">
+	<view class="sievepop">
+		<view class="sievepopTitle">
+			<view bindtap="sieveShow">取消</view>
+			<view>选择评委</view>
+			<view bindtap="confirmJudge">确定</view>
+		</view>
+		<view class="sieveList">
+			<view class="{{selectJudge=='全部'?'selectJudge':''}}" data-value="全部" bindtap="selectJudge">全部</view>
+			<view wx:for="{{judgeList}}" class="{{selectJudge==item.name?'selectJudge':''}}" data-value="{{item}}" bindtap="selectJudge">{{item.name}}</view>
+		</view>
+	</view>
+</van-popup>

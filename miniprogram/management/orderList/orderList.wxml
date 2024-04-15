@@ -1,0 +1,41 @@
+<view class="pageBg"></view>
+<custom navbar-data='{{navbarData}}'></custom>
+<view class="searchBar" style="top: {{height}}px;background-position: 0 -{{height}}px;">
+  <view>
+    <input value="{{searchText}}" placeholder="输入姓名/手机号查询" bindinput="inputValue" />
+    <van-icon name="search" size="38rpx" />
+  </view>
+  <view bindtap="searchOrder">确定</view>
+</view>
+<view class="orderList" style="margin-top: calc({{height}}px + 120rpx);">
+  <view wx:for="{{searchList.length>0?searchList:orderList}}" wx:for-index="index">
+    <view wx:for="{{item}}" wx:for-index="indexx" class="orderItem" data-detail="{{item}}" bindtap="toOrderDetail">
+      <view class="orderCover">
+        <image src="https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/magazine/magazine_{{item.group=='初中'?'blue':(item.group=='小高'?'green':'red')}}.png" />
+      </view>
+      <view>
+        <view class="orderName">《英语角》杂志level {{item.group=='初中'?'3':(item.group=='小高'?'2':'1')}}</view>
+        <view class="orderTime">下单时间：{{item.creatTime}}</view>
+        <view class="userAvatar">
+          <image data-indexx="{{indexx}}" data-index="{{index}}" binderror="imageError" src="{{item.avatar_url}}" /><text>{{item.name}}</text><text>{{item.phone_number}}</text>
+        </view>
+      </view>
+      <view class="orderPrice">
+        <view class="orderStatus" style="color: {{item.shipped?'#758E9D':'#FF7600'}};">{{item.shipped?"已发货":"未发货"}}</view>
+        <view>实付 ¥<text>{{item.totalFee/100}}</text></view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-loadmore" wx:if="{{searchList.length<1}}">
+    <view wx:if='{{isLoadingMoreData}}'>
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore-tips">正在加载更多...</view>
+    </view>
+    <view wx:elif='{{hasMoreData}}'>
+      <view class="weui-loadmore-tips" bindtap='onReachBottom'>点击加载更多</view>
+    </view>
+    <view wx:else>
+      <view class="weui-loadmore-tips">没有更多订单啦~</view>
+    </view>
+  </view>
+</view>

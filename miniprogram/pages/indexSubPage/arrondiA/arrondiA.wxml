@@ -1,0 +1,6 @@
+<view>
+  <custom navbar-data='{{navbarData}}'></custom>
+  <view style="margin-top: {{height}}px;display: flex;">
+    <image mode="widthFix" src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/image/indexSubPageArrondiA.png" />
+  </view>
+</view>

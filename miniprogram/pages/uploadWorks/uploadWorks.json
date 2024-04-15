@@ -1,0 +1,11 @@
+{
+	"usingComponents": {
+		"custom": "/components/custom/custom",
+		"van-collapse": "@vant/weapp/collapse/index",
+		"van-collapse-item": "@vant/weapp/collapse-item/index",
+		"van-field": "@vant/weapp/field/index",
+		"van-uploader": "@vant/weapp/uploader/index",
+		"van-action-sheet": "@vant/weapp/action-sheet/index",
+		"van-picker": "@vant/weapp/picker/index"
+	}
+}

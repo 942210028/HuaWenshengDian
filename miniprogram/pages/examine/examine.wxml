@@ -1,0 +1,38 @@
+<tabbar activeIdx="2"></tabbar>
+<custom navbar-data='{{navbarData}}'></custom>
+<view style="margin-top: {{height}}px;padding-top: 30rpx;">
+	<view class="rankingBox">
+		<view class="title">
+			<view>视频创作大赛</view>
+			<view bindtap="toScoreSort">全部排名<van-icon name="arrow" /></view>
+		</view>
+		<view class="rankingList">
+			<view class="rankingItem" wx:for="{{sortWorkList}}">
+				<view><image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/icon/ranking{{index+1}}.png"/></view>
+				<view>
+					<view>{{item.name}}</view>
+					<view>{{item.schoolName}}</view>
+				</view>
+				<view>{{item.phone_number}}</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="match">
+	<view class="joinUser">
+		<view>
+		<image wx:for="{{totalUserList}}" src="{{item.avatar_url}}" />
+    <view wx:if="{{totalUserList[0].totalCount>4}}">···</view>
+	</view>
+	<view>
+        {{totalUserList[0].totalCount}}人报名
+	</view>
+	</view>
+	<view class="matchSubTitle">“用英语讲中国故事”-视频创作</view>
+	<view class="matchDetail">
+      <view>2023/05/22-2023/08/31</view>
+		<view bindtap="toUploadWorkList">去打分</view>
+	</view>
+	<view class="matchTitle"></view>
+</view>

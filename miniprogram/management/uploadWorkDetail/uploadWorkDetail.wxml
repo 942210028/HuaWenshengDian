@@ -1,0 +1,75 @@
+<view class="pageBg"></view>
+<custom navbar-data='{{navbarData}}'></custom>
+<view style="margin-top: calc({{height}}px + 20rpx);">
+  <view class="title">{{upLoadWorkDetail.title}}</view>
+  <view class="userName">
+    <view>{{upLoadWorkDetail.name}}</view>
+    <view>
+      <view>{{upLoadWorkDetail.phone_number}}</view>
+    </view>
+  </view>
+  <video custom-cache="{{false}}" src="{{upLoadWorkDetail.video_url}}"></video>
+
+	<view class="userInfo">
+		<view>学校：<input value="{{upLoadWorkDetail.schoolName}}" disabled />
+			<view>专业：<input value="{{upLoadWorkDetail.speciality}}" disabled /></view>
+		</view>
+		<view>姓名：<input value="{{upLoadWorkDetail.name}}" disabled bindinput="joinRaceUserNameInput" type="text" />
+			<view>年级：<input value="{{upLoadWorkDetail.grade}}" disabled /></view>
+		</view>
+		<view>手机号码：<input value="{{upLoadWorkDetail.phone_number}}" disabled bindinput="phoneInput" type="text" /></view>
+		<view>邮箱：<input value="{{upLoadWorkDetail.email}}" disabled bindinput="emailInput" type="text" /></view>
+		<view>创作人员：<input value="{{upLoadWorkDetail.author}}" bindinput="authorInput" type="text" disabled /></view>
+		<view>指导老师：<input value="{{upLoadWorkDetail.instructor}}" bindinput="instructorInput" type="text" disabled /></view>
+		<view>跨文化演讲主题名称：</view>
+		<view class="introduction">{{upLoadWorkDetail.recitationTitle}}</view>
+	</view>
+  <!-- 打分区 -->
+  <view class="scoreArea">
+    <view>打分区</view>
+    <!-- 总分框 -->
+    <view class="totalScore" wx:if="{{totalScore>0}}">
+      <view>
+        <view>
+          <view>{{totalScore}}</view>
+          <view>分</view>
+        </view>
+      </view>
+    </view>
+		<view class="playScore">
+			<!-- 分数4 -->
+			<view>
+				<view>
+					<view>内容（结构、情节、遣词造句）</view>
+					<view class="subTitle">（总分50分）</view>
+					<view>
+						<van-stepper integer min="0" max="50" button-size="44rpx" value="{{ score.score4 }}" data-maxValue="50" disabled/>
+					</view>
+				</view>
+			</view>
+			<!-- 分数5 -->
+			<view>
+				<view>
+					<view>强调单词、抑扬顿挫、发音</view>
+					<view class="subTitle">（总分30分）</view>
+					<view>
+						<van-stepper integer min="0" max="30" button-size="44rpx" value="{{ score.score5 }}" data-maxValue="30" disabled/>
+					</view>
+				</view>
+			</view>
+			<!-- 分数6 -->
+			<view>
+				<view>
+					<view>肢体语言和面部表情</view>
+					<view class="subTitle">（总分20分）</view>
+					<view>
+						<van-stepper integer min="0" max="20" button-size="44rpx" value="{{ score.score6 }}" data-maxValue="20" disabled />
+					</view>
+				</view>
+			</view>
+		</view>
+		<view class="totalScoreText" wx:if="{{totalScore>0}}">总得分：{{totalScore}}分</view>
+		<view class="totalScoreText" wx:else>暂未打分</view>
+  </view>
+</view>
+

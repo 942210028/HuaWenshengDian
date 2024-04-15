@@ -1,0 +1,47 @@
+page{
+  background: linear-gradient(180deg, #E2EEFA 0%, #FAFAFA 80%, #FFFFFF 100%) no-repeat;
+	padding-bottom: 116rpx;
+}
+.noPrize{
+	text-align: center;
+	margin-top: 30%;
+	color: #666666;
+	font-size: 32rpx;
+}
+.noPrize image{
+	width: 594rpx;
+	height: 412rpx;
+}
+.getPrizeList{
+	padding-top: 50rpx;
+}
+.prizeItem{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0rpx 32rpx;
+	background: linear-gradient(360deg, rgba(253,233,191,0.37) 0%, rgba(145,196,233,0) 100%);
+	box-shadow: 0px 2px 16px 0px rgba(98,98,98,0.06);
+	border-radius: 16px;
+	font-size: 32rpx;
+}
+.prizeItem image{
+	width: 68rpx;
+	height: 68rpx;
+	margin-right: 28rpx;
+}
+.prizeItem>view:first-child>view{
+	display: flex;
+	align-items: center;
+	margin: 24rpx 0;
+}
+.prizeItem>view:last-child{
+	width: 158rpx;
+	height: 52rpx;
+	background: #369AFF;
+	border-radius: 34rpx;
+	text-align: center;
+	line-height: 52rpx;
+	font-size: 26rpx;
+	color: white;
+}

@@ -1,0 +1,10 @@
+<view class='nav-wrap' style="height: {{height}}px;background: {{navbarData.bg_color}};background-size: 100%;border-bottom: 2rpx solid {{navbarData.bottomLine_color?navbarData.bottomLine_color:navbarData.bg_color}};">
+  <view class='nav-title' style='line-height: {{titleheight}}px;color: {{navbarData.titleColor}}'>{{navbarData.title}}</view>
+  <view style='display: flex; justify-content: space-around;flex-direction: column'>
+    <view class='nav-capsule' wx:if='{{navbarData.showCapsule}}'>
+      <view bindtap='_navback' wx:if='{{!share}}'>
+				<van-icon name="arrow-left" style="margin-top:{{imageheight}}px" size="38rpx" color="{{navbarData.backIcon}}" />
+      </view>
+    </view>
+  </view>
+</view>

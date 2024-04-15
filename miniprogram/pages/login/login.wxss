@@ -1,0 +1,66 @@
+page{
+  background: url(https://636c-cloud1-4gojwhjp38f8a41c-1315829236.tcb.qcloud.la/icon/entrancePageBg.png) no-repeat, linear-gradient(180deg, #F5EFFF 0%, #FFFFFF 100%);
+  background-size: 100%;
+}
+.logo{
+  width: 100%;
+  text-align: center;
+}
+.logo image{
+  width: 686rpx;
+  height: 310rpx;
+  margin-top: 200rpx;
+}
+button{
+  width: 574rpx;
+  height: 106rpx;
+  background: white;
+  border-radius: 54rpx;
+  color: #b81d1d;
+  line-height: 106rpx;
+  font-size: 36rpx;
+  margin: 320rpx auto 0;
+}
+.button-hover{
+  background-color: #004ccf;
+  color: white;
+}
+.userAgreement{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  position: fixed;
+  bottom: 50rpx;
+  font-size: 24rpx;
+  color: #999999;
+}
+.userAgreement text{
+  color: #337CFB;
+  font-weight: bold;
+}
+.animation {
+  animation: agreement 0.5s linear infinite;
+  animation-iteration-count: 1;
+}
+@keyframes agreement {
+  0% {
+    transform: translateX(-4px)
+  }
+
+  25% {
+    transform: translateX(4px)
+  }
+
+  50% {
+    transform: translateX(-4px)
+  }
+
+  75% {
+    transform: translateX(4px)
+  }
+
+  100% {
+    transform: translateX(0)
+  }
+}

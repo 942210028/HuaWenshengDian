@@ -1,0 +1,7 @@
+<custom navbar-data='{{navbarData}}'></custom>
+<view style="margin-top: {{height}}px;">
+  <view class="canvasPage">
+    <canvas canvas-id="award" class="canvas-content" style="width:{{windowWidth*0.91}}px;height:{{windowWidth*1.248}}px"></canvas>
+  </view>
+	<view class="save" bindtap="saveAward">保存图片至相册</view>
+</view>

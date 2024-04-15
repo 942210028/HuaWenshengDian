@@ -1,0 +1,16 @@
+<view class='tabbar'>
+  <view wx:if='{{_auth >= item.auth}}' style="width: {{100/tabbarList.length+'%'}};" class='tabbar-item' wx:for='{{tabbarList}}' wx:key='pagePath' bindtap='handleItemTap' data-path='{{item.pagePath}}' data-idx='{{index}}'>
+    <view wx:if="{{userType=='admin'}}">
+      <view class="tabbar-item-icon {{activeIdx === index ? 'tabbar-item-icon_active' : ''}}">
+        <image src='{{activeIdx === index ? item.selectedIconPath : item.iconPath}}'></image>
+      </view>
+    </view>
+    <view wx:else>
+      <view class="user-tabbar-item-icon {{activeIdx === index ? 'user-tabbar-item-icon_active' : ''}}">
+        <image src='{{activeIdx === index ? item.selectedIconPath : item.iconPath}}'></image>
+      </view>
+    </view>
+    <view wx:if="{{userType=='admin'}}" class='tabbar-item-text {{activeIdx === index ? "active" : ""}}'>{{item.text}}</view>
+    <view wx:else class='user-tabbar-item-text {{activeIdx === index ? "user-active" : ""}}'>{{item.text}}</view>
+  </view>
+</view>

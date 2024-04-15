@@ -1,0 +1,15 @@
+<view class="page">
+  <custom navbar-data='{{navbarData}}'></custom>
+<view style="margin-top: {{height+20}}px;">
+  <view class="recordItem" wx:for="{{raceRecord}}">
+    <view>
+      <image mode="aspectFill" src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/raceImg1.png"/>
+    </view>
+    <view>
+      <view>{{item.name}}</view>
+      <view>作品名称：{{item.recitationTitle}}</view>
+      <view data-detail="{{item._id}}" bindtap="toUploadWorkEdit">去修改</view>
+    </view>
+  </view>
+</view>
+</view>

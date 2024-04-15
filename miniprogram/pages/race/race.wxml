@@ -1,0 +1,16 @@
+<tabbar activeIdx="1"></tabbar>
+<custom navbar-data='{{navbarData}}'></custom>
+<view style="margin-top: calc({{height}}px + 40rpx);">
+  <view class="raceBox" bindtap="toRaceDetail">
+    <view>
+      <view>
+				<view class="raceName"><text>“用英语讲中国故事”\n-视频创作</text></view>
+				<view class="raceTime">活动时间：2024.03.24-2024.04.14</view>
+      </view>
+      <view class="raceJoin">参加活动</view>
+    </view>
+    <view>
+      <image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/raceImg1.png"/>
+    </view>
+  </view>
+</view>

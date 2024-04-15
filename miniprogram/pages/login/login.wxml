@@ -1,0 +1,10 @@
+<custom navbar-data='{{navbarData}}'></custom>
+<view class="logo" style="margin-top: {{height}}px;">
+  <image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/newLogo2.png" />
+</view>
+<view>
+  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">微信登陆</button>
+</view>
+<view class="userAgreement {{noAgreement?'animation':''}}">
+  <van-checkbox icon-size="30rpx" value="{{ agreement }}" bind:change="agreement">我已阅读<text catchtap="privacyPolicy">用户协议、隐私政策</text>，并同意协议内容</van-checkbox>
+</view>

@@ -1,0 +1,114 @@
+<custom navbar-data='{{navbarData}}'></custom>
+<view style="margin-top: calc({{height}}px + 40rpx);">
+	<view class="raceBox">
+		<view>
+			<image src="cloud://cloud1-4gojwhjp38f8a41c.636c-cloud1-4gojwhjp38f8a41c-1315829236/raceBanner3.png" />
+		</view>
+		<view>
+			<view>
+				<view class="raceName"><text>“用英语讲中国故事”\n-视频创作</text></view>
+				<view class="raceTime">活动时间：2024.03.24-2024.04.14</view>
+			</view>
+			<view class="raceJoin" bindtap="toJoinRace">我要报名</view>
+		</view>
+	</view>
+</view>
+<view class="menu {{menuFixes?'menuFixes':''}}" style="top:{{menuFixes?height:0}}px;">
+	<view wx:for="{{menu}}" class="{{menuSelect==index?'select':''}}" data-value="{{index}}" bindtap="menuSelect">{{item.title}}</view>
+</view>
+<view style="margin-top:{{menuFixes?53:0}}px;">
+	<view class="text" id="text{{index}}" wx:for="{{menu}}">
+		<view>{{item.title}}</view>
+		<view class="content" wx:if="{{item.content}}"><text user-select decode="{{true}}">{{item.content}}</text>
+			<view class="subTitle" wx:if="{{item.subTitle}}">{{item.subTitle}}</view>
+			<view wx:if="{{item.subContent}}"><text user-select decode="{{true}}">{{item.subContent}}</text></view>
+		</view>
+		<view wx:if="{{index==2}}" class="table1">
+			<view class="tr">
+				<view class="th">报名时间</view>
+				<view class="td">即日起-2024年3月24日</view>
+			</view>
+			<view class="tr">
+				<view class="th">作品1征集截止时间</view>
+				<view class="td">2024年3月25日-2024年3月31日</view>
+			</view>
+			<view class="tr">
+				<view class="th">作品2征集截止时间</view>
+				<view class="td">2024年4月1日-2024年4月14日</view>
+			</view>
+			<view class="tr">
+				<view class="th">获奖名单结果</view>
+				<view class="td">2024年5月10日前</view>
+			</view>
+		</view>
+		<view wx:if="{{index==2}}">
+	<view class="text">
+		<view>参赛人员</view>
+		<view class="content"><text user-select decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;“中外高水平大学交流计划”所有项目高校23级项目学生</text></view>
+	</view>
+	<view class="text">
+		<view>奖励事项</view>
+		<view class="content"><text decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、评审结果：2024 年05月10日前，通过CTCulture （华文盛典）微信公众号公布获奖名单结果。\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二、所有参与活动选手均由“中高计划全国运营中心”颁发荣誉证书</text><text style="color: #b81d1d;" bindtap="imagePreview">(查看电子证书样张)</text><text>经专家委员会评审，前30名将获得奖品，并将推荐入选2024年由中国国家创新与发展战略研究会和新航道主办的第四届“用英语讲中国故事”全国活动（区域赛名额）。</text></view>
+		<view class="table2">
+			<view class="tr">
+				<view class="th">奖项</view>
+				<view class="th">人数</view>
+				<view class="th">荣誉</view>
+			</view>
+			<view class="tr">
+				<view class="td">最佳学识奖</view>
+				<view class="td">1</view>
+				<view class="td">华为耳机礼品及证书</view>
+			</view>
+			<view class="tr">
+				<view class="td">杰出表现奖</view>
+				<view class="td">5</view>
+				<view class="td">凌美钢笔礼品及证书</view>
+			</view>
+			<view class="tr">
+				<view class="td">最佳才艺奖</view>
+				<view class="td">10</view>
+				<view class="td">小米手环礼品及证书</view>
+			</view>
+			<view class="tr">
+				<view class="td">最具潜力奖</view>
+				<view class="td">14</view>
+				<view class="td">星巴克礼品卡/100元及证书</view>
+			</view>
+			<view class="tr">
+				<view class="td">最佳参与奖</view>
+				<view class="td">若干</view>
+				<view class="td">电子荣誉证书</view>
+			</view>
+		</view>
+	</view>
+		</view>
+		<view wx:if="{{index==3}}" class="text">
+			<view hidden="true"></view>
+			<view class="subTitle">一、参赛流程</view>
+
+			<view class="subsubTitle">第1步: 获取推荐材料</view>
+			<view class="content"><text user-select decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;通过“CTCulture 华文盛典”公众号， 回复“大学组”获取“英文朗诵”资料，同时可观摩学习公众号往届“优秀作品展播”栏目。</text></view>
+			<view class="subsubTitle">第2步: 报名</view>
+			<view class="content"><text user-select decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在2024年3月24日前通过“CTCulture华文盛典”公众号实名注册，选择大学生报名通道，签署电子版权承诺书报名，即为报名成功。</text></view>
+			<view class="subsubTitle">第3步: 上传作品1</view>
+			<view class="content"><text user-select decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在2024年3月31日前上传作品1“英文朗诵”至“CTCulture华文盛典”公众号内对应位置。</text></view>
+			<view class="subsubTitle">第4步: 上传作品2</view>
+			<view class="content"><text user-select decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在2024年4月14日前上传作品2“英文自我介绍”至“CTCulture 华文盛典”公众号内对应位置即为参赛成功。</text></view>
+			<view class="subTitle">二、视频类作品规格与要求</view>
+			<view class="content"><text user-select decode="{{true}}">1.视频规格：支持格式支持 mp4、flv、mkv、rmvb 等视频格式文件，视频文件最大 200M。\n2、英文朗诵单个视频时长不低于1分钟、不超过1.5分钟。\n3、英文自我介绍单个视频时长不低于1分钟、不超过1.5分钟。\n4.字幕：视频可配中英文字幕。\n5.画面要求：手机拍摄请优先采用横屏，以展示上半身及完整肢体语言，以便获得更高的画面质量。\n6.其他：视频开头必须有完整作品名称，视频结尾必须有所有参与作品拍摄人员名称。\n7.录制建议：作品须由选手本人展示，选手可自行准备背景、PPT、服装道具等来辅助模拟现场录制视频；请不要在作品中添加广告内容、雷同内容或抄袭作品等涉嫌作弊等不规范内容。</text></view>
+		</view>
+	</view>
+	<view class="text">
+		<view>联络方式</view>
+		<view class="content"><text user-select decode="{{true}}">中外高水平大学学生交流计划全国运营中心</text></view>
+		<view class="content"><text user-select decode="{{true}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（江苏中教人文国际文化交流有限公司）</text></view>
+		<view class="content"><text user-select decode="{{true}}">地址：江苏南京市玄武区板仓街78号玄武科技园\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（南师大紫金校区）3号楼207</text></view>
+		<view class="content phone">
+			<view>联络人：</view>
+			<view>金老师 15250988252（微信同号）</view>
+		</view>
+		<view class="content"><text user-select decode="{{true}}">邮箱：cnculture2022@163.com</text></view>
+
+	</view>
+</view>

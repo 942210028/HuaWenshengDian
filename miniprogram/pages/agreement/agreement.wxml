@@ -1,0 +1,22 @@
+<view class="page">
+  <custom navbar-data='{{navbarData}}'></custom>
+  <view class="content" style="margin-top: {{height}}px;">
+    <view>版权承诺书</view>
+    <view>
+      <text>
+        本单位/本人就授权给第二届“中高杯”英语演讲暨“用英语讲中国故事-视频创作大赛”活动的参评作品（以下简称“授权作品”）的版权和内容承诺如下：
+        一、本单位/本人保证具有签署本承诺书并履行相应义务的权利和授权，确保参加此次活动不会与其他方权利相冲突。
+        二、本单位/本人保证署名作者对授权作品拥有完整独立著作权、版权、邻接权及信息网络传播权及转授权等所有权益，并同意将作品在活动期间在网上进行免费展播。
+        三、本单位/本人保证授权作品的版权和内容不违反法律法规、不侵犯任何第三方的版权以及其他合法权利，对由于授权作品的内容或权利瑕疵引发的争议或权利纠纷承担相应法律责任。
+        四、本单位/本人保证授权作品的相关信息真实有效。
+        五、参赛作品的知识产权归主办方所有。
+      </text>
+    </view>
+    <view>
+      <van-checkbox shape="square" value="{{ checked }}" checked-color="#1877f8" bind:change="onChange">
+        本单位/本人已仔细阅读并接受上述内容，自愿参加上述活动。
+      </van-checkbox>
+    </view>
+  </view>
+  <view class="nextStep" bindtap="nextStep">下一步</view>
+</view>

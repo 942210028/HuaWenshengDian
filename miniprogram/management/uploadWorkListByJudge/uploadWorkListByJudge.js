@@ -83,7 +83,8 @@ Page({
 			type: 'getall',
 			pageSize: pageSize,
 			currentPage: that.data.currentPage,
-			group: that.data.typeMenuSelect
+			group: that.data.typeMenuSelect,
+			judge: that.data.userInfo._id
 		}
 		if (that.data.typeMenuSelect == "全部") {
 			delete data.group
@@ -102,7 +103,8 @@ Page({
 			type: 'getall',
 			pageSize: pageSize,
 			currentPage: that.data.currentPage,
-			group: that.data.typeMenuSelect
+			group: that.data.typeMenuSelect,
+			judge: that.data.userInfo._id
 		}
 		if (that.data.typeMenuSelect == "全部") {
 			delete data.group
@@ -136,7 +138,8 @@ Page({
 			type: 'getall',
 			pageSize: pageSize,
 			currentPage: that.data.currentPage,
-			group: that.data.typeMenuSelect
+			group: that.data.typeMenuSelect,
+			judge: that.data.userInfo._id
 		}
 		if (that.data.screenSelect != -1) {
 			if (that.data.screenSelect == 0) {
@@ -262,7 +265,8 @@ Page({
 			type: 'getall',
 			pageSize: pageSize,
 			currentPage: that.data.currentPage,
-			group: that.data.typeMenuSelect
+			group: that.data.typeMenuSelect,
+			judge: that.data.userInfo._id
 		}
 		if (that.data.screenSelect != -1) {
 			if (that.data.screenSelect == 0) {

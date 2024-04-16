@@ -9,12 +9,12 @@ exports.main = async (event, context) => {
   const db = cloud.database();
   const $ = db.command.aggregate;
 	const _ = db.command;
-	return await db.collection("User").where({
-		getPrize: _.elemMatch({
-			awards: "最佳参与奖"
-		})
-	})
-	.get()
+	// return await db.collection("User").where({
+	// 	getPrize: _.elemMatch({
+	// 		awards: "最佳参与奖"
+	// 	})
+	// })
+	// .get()
 
   // const list = await db.collection("FirstWorks")
 	// .aggregate()
@@ -51,6 +51,35 @@ exports.main = async (event, context) => {
 	// 					subAwards: "Best Participation Award"
 	// 				}
 	// 			]
+	// 		},
+	// 	})
+	// }
+
+
+	// 更新评委
+	//  const list = await db.collection("FirstWorks")
+	// .aggregate()
+	// .match({
+	// 	video_url: _.and([_.neq(""), _.exists(true)])
+	// })
+	// .project({
+	// 	name: 1,
+	// 	judges_id: 1,
+	// })
+	// .sort({
+	// 	judges_id: -1
+	// })
+	// .skip(1)
+	// .limit(4000)
+	// .end();
+	// console.log(list)
+	// return
+	// for(var i=0;i<=list.list.length;i++){
+	// 	db.collection("FirstWorks")
+  //   .doc(list.list[i]._id)
+  //   .update({
+  //     data: {
+	// 			judges_id: "oatQ75YtRF8M6HyPUd-Ms-JwXC1c"
 	// 		},
 	// 	})
 	// }

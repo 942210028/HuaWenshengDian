@@ -290,8 +290,9 @@ Page({
 							hasMoreData: false
 						})
 					}
+					that.data.workList = that.data.workList.concat(res.result.list)
 					that.setData({
-						workList: that.data.workList.concat(res.result.list),
+						workList: that.data.workList,
 						isLoadingMoreData: false
 					})
 				}

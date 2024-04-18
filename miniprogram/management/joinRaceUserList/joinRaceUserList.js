@@ -121,8 +121,9 @@ Page({
               hasMoreData: false
             })
           }
+					that.data.userList = that.data.userList.concat(res.result.list)
           that.setData({
-            userList: that.data.userList.concat(res.result.list),
+            userList: that.data.userList,
             isLoadingMoreData: false
           })
         }

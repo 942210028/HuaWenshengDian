@@ -22,7 +22,29 @@ Page({
   },
   onLoad(options){
     console.log(options)
-		that = this
+    that = this
+    wx.cloud.callFunction({
+      name: "getUserInfo",
+      success: res=>{
+        console.log(res.result.data.type)
+        if(res.result.data.type==4||res.result.data.type==5){
+          console.log(res.result.data.type)
+        }else{
+          wx.showModal({
+            title:'提示',
+            content:"该页面不对用户开放",
+            showCancel:false,
+            success(res){
+              if(res.confirm){
+                wx.switchTab({
+                  url:'/pages/index/index'
+                })
+              }
+            }
+          })
+        }
+      }
+    })
 		that.data.upLoadWorkList.push(options.id)
 		that.setData({
 			upLoadWorkList: that.data.upLoadWorkList

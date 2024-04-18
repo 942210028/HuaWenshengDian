@@ -34,6 +34,11 @@ Page({
     })
   },
   toUploadWorkEdit(e){
+    wx.showToast({
+      icon: "none",
+      title: '上传已截止',
+    })
+    return
     wx.navigateTo({
       url: `../uploadWorksEdit/uploadWorksEdit?_id=${e.currentTarget.dataset.detail}`,
     })

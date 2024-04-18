@@ -197,6 +197,11 @@ Page({
 	},
 	// 上传作品
 	toUploadWorks(){
+    wx.showToast({
+      icon: "none",
+      title: '上传已截止',
+    })
+    return
 		console.log(app.globalData)
 		if(app.globalData.userType){
       wx.showLoading({
@@ -215,13 +220,9 @@ Page({
               url: `../uploadWorksEdit/uploadWorksEdit?_id=${res.result.list[0]._id}`,
             })
           }else{
-            wx.showToast({
-              icon: "none",
-              title: '上传已截止',
-            })
-						// wx.navigateTo({
-						// 	url: '../uploadWorks/uploadWorks',
-						// })
+						wx.navigateTo({
+							url: '../uploadWorks/uploadWorks',
+						})
           }
         }
       })
